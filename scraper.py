@@ -51,6 +51,39 @@ def parseBuffs(changelog):
             buffs['other'].append(change)
     return buffs
 
+def generatePage(patchNotes):
+    with open('patches/{}.html'.format(patchNotes['id'].upper()), 'w') as patchfile:
+        patchfile.write('<!DOCTYPE html>\n' +
+                        '<head>\n' +
+                        '    <title>{}</title>\n'.format(patchNotes['id'].upper()) +
+                        '    <link rel="stylesheet" href="patch.css"\n' +
+                        '</head>\n' +
+                        '<body>\n' +
+                        '    <h1>{}</h1>'.format(patchNotes['id'].upper()) +
+                        '    <h2>GENERAL</h2>\n' +
+                        '    <div id="general">\n')
+
+        for change in patchNotes['buffs']['other']:
+            patchfile.write('            <p>{}</p>\n'.format(change))
+
+        patchfile.write('    </div>\n' +
+                        '    <h2>HEROES/ITEMS</h2>\n' +
+                        '    <div id="heroes">\n')
+        for _ in range(len(patchNotes['buffs']['heroes/items'])):
+            hero, buffs = patch['buffs']['heroes/items'].popitem(last=False)
+            patchfile.write('        <div class="hero">\n' +
+                            '            <img src="http://cdn.dota2.com/apps/dota2/images/heroes/juggernaut_full.png">\n' +
+                            '            <h3>{}</h3>\n'.format(hero) +
+                            '            <ul>\n' +
+                            '                <li>' +
+                            '\n                <li>'.join([buff for buff in buffs]) +
+                            '\n            </ul>\n' +
+                            '        </div>\n')
+        patchfile.write('    </div>\n' +
+                        '</body>')
+        print('Patch notes written successfully')
+    return None
+
 
 #request the page contents, for example "http://www.dota2.com/news/updates/29717/"
 patchURL = input('PATCH URL\n>>> ')
@@ -58,32 +91,11 @@ patchURL = input('PATCH URL\n>>> ')
 print('Accessing patch notes')
 r = requests.get(patchURL)
 
+
 if r.status_code == 200:
     print('Parsing patch notes')
     patch = parseDocument(BS(r.text, 'html.parser'))
-
-    with open('{}.txt'.format(patch['id']),'w') as patchfile:
-        print('Writing patch notes')
-        patchfile.write('{}'
-                        '\n\n'
-                        '{}'
-                        '\n\n'
-                        '===='
-                        '\n\n'
-                        'GENERAL\n'.format(patch['id'].upper(),
-                                           datetime.strftime(patch['date'], '%d/%m/%Y'))
-                        )
-
-        for buff in patch['buffs']['other']:
-            patchfile.write('\t{}\n'.format(buff))
-
-        patchfile.write('\n\nHEROES/ITEMS\n')
-        for _ in range(len(patch['buffs']['heroes/items'])):
-            hero, buffs = patch['buffs']['heroes/items'].popitem(last=False)
-            patchfile.write('\t{}\n'.format(hero.upper()))
-            for buff in buffs:
-                patchfile.write('\t\t{}\n'.format(buff))
-        print('Patch results written successfully')
+    generatePage(patch)
 
 else:
     print('Error: Could not access document')
