@@ -72,7 +72,7 @@ def generatePage(patchNotes):
         for _ in range(len(patchNotes['buffs']['heroes/items'])):
             hero, buffs = patch['buffs']['heroes/items'].popitem(last=False)
             patchfile.write('        <div class="hero">\n' +
-                            '            <img src="http://cdn.dota2.com/apps/dota2/images/heroes/juggernaut_full.png">\n' +
+                            '            <img src="../icons/{}.png">\n'.format(hero.replace(' ', '_')) +
                             '            <h3>{}</h3>\n'.format(hero) +
                             '            <ul>\n' +
                             '                <li>' +
