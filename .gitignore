@@ -1,2 +1,4 @@
 .idea/**
 icons/**
+patches/**
+!patches/patch.css

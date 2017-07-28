@@ -10,7 +10,7 @@ if 'icons' not in os.listdir(os.getcwd()):
 
 #dota2.gamepedia is used here because of it keeps hero names updated
 #for example "Necrolyte" --> "Necrophos"
-heroRequest = requests.get('http://dota2.gamepedia.com/Heroes')
+heroRequest = requests.get('https://dota2.gamepedia.com/Heroes')
 if heroRequest.status_code == 200:
     try:
         heroDocument = BS(heroRequest.text, 'html.parser')
