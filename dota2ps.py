@@ -1,10 +1,10 @@
-import requests
-from datetime import datetime
-import urllib.request
-from bs4 import BeautifulSoup  # https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 import os
 import re
 import collections
+from datetime import datetime
+import requests
+import urllib.request
+from bs4 import BeautifulSoup  # https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 
 
 class D2Patch:
@@ -17,6 +17,11 @@ class D2Patch:
                           'other': []}
 
     def fetch_new_post(self, post_url):
+        """
+        attempts to request document and sends it off to be parsed
+        :param post_url: blog post url in form "www.dota2.com/news/updates/....."
+        :return:
+        """
         r = requests.get(post_url)
         if r.status_code == 200:
             self.url = post_url
@@ -26,95 +31,101 @@ class D2Patch:
             print('There was an error in retreiving the blog post, please try again.')
         return None
 
-    def fetch_icons(self):
+    @staticmethod
+    def fetch_hero_icons():
+        """
+        reads hero page of dota2.gamepedia.com for hero icons and downloads any new icons
+        hero names are also kept up to date ("Necrolyte" --> "Necrophos")
+        :return:
+        """
         if 'icons' not in os.listdir(os.getcwd()):
             os.mkdir('icons')
-        self.fetch_hero_icons()
-        self.fetch_item_icons()
-        return None
 
-    def fetch_hero_icons(self):
-        # dota2.gamepedia is used here because of it keeps hero names updated
-        # for example "Necrolyte" --> "Necrophos"
         r = requests.get('https://dota2.gamepedia.com/Heroes')
         if r.status_code == 200:
             try:
-                heroDocument = BeautifulSoup(r.text, 'html.parser')
+                hero_document = BeautifulSoup(r.text, 'html.parser')
                 # icons are stored in classed tables within the main page content
-                print('Processing ', end='')
-                for table in heroDocument.find(id='mw-content-text').find_all(class_='wikitable'):
+                print('Processing hero icons...')
+                for table in hero_document.find(id='mw-content-text').find_all(class_='wikitable'):
                     for img in table.find_all('img'):
-                        heroURL = img['src']
-                        heroName = re.search('/[^/]*\?', heroURL).group()[7:-10]
-                        heroName = heroName.replace('%27', '\'').lower()
-                        print(heroName, end=', ', flush=True)
-                        if '{}.png'.format(heroName) not in os.listdir('icons'):
-                            urllib.request.urlretrieve(heroURL, 'icons\\{}.png'.format(heroName))
-                print('DONE!\nAll hero images downloaded successfully')
+                        hero_url = img['src']
+                        hero_name = re.search('/[^/]*\?', hero_url).group()[7:-10]
+                        hero_name = hero_name.replace('%27', '\'').lower()
+                        if '{}.png'.format(hero_name) not in os.listdir('icons'):
+                            print(hero_name, end=', ', flush=True)
+                            urllib.request.urlretrieve(hero_url, 'icons\\{}.png'.format(hero_url))
+                print('DONE!')
             except:
                 print('Unable to parse document, please try again')
         else:
             print('Unable to obtain document from {}, status code'.format(r.url, r.status_code))
         return None
-    
-    def fetch_item_icons(self):
-        # the official dota2 page is used here, as dota2.gamepedia generates
-        #   the item page at execution instead of generating it server-side
-        # some items also have outdated names, this will be fixed in future
+
+    @staticmethod
+    def fetch_item_icons():
+        """
+        reads icon page of dota2.com for item icons and downloads any new icons
+        some names are outdated, this will need to be rectified
+        :return:
+        """
+        if 'icons' not in os.listdir(os.getcwd()):
+            os.mkdir('icons')
+
         r = requests.get('https://www.dota2.com/items/')
         if r.status_code == 200:
             try:
-                itemDocument = BeautifulSoup(r.text, 'html.parser')
-                print('Processing', end=' ')
-                for column in itemDocument.find_all(class_='shopColumn'):
-                    # this additional loop ignores the column's header icon, which is the only image not encapsulated within a div
-                    for itemContainer in column.find_all(name='div'):
-                        itemURL = itemContainer.find(name='img')['src']
-                        itemName = re.search('/[^/]*\.png', itemURL).group()[1:-7]
-                        print(itemName, end=', ', flush=True)
-                        if '{}.png'.format(itemName) not in os.listdir('icons'):
-                            urllib.request.urlretrieve(itemURL, 'icons\\{}.png'.format(itemName))
-                print('DONE!\nAll item images downloaded successfully')
+                item_document = BeautifulSoup(r.text, 'html.parser')
+                print('Processing item icons...')
+                for column in item_document.find_all(class_='shopColumn'):
+                    # nested loop to avoid header image, which is not encapsulated within a div
+                    for item_container in column.find_all(name='div'):
+                        item_url = item_container.find(name='img')['src']
+                        item_name = re.search('/[^/]*\.png', item_url).group()[1:-7]
+                        if '{}.png'.format(item_name) not in os.listdir('icons'):
+                            print(item_name, end=', ', flush=True)
+                            urllib.request.urlretrieve(item_url, 'icons\\{}.png'.format(item_url))
+                print('DONE!')
             except:
                 print('Unable to parse document, please try again')
         else:
             print('Unable to obtain document from {}, status code'.format(r.url, r.status_code))
         return None
-        
 
     def parse_post_document(self, document):
+        """
+        strips the title and body from a blog post
+        :param document: the HTML documents as a beautifulsoup object
+        :return:
+        """
         post = document.find('div', id='mainLoop').find_all('div')[0]
-        post_date, post_content = post.find_all('div')
-        patch_id, patch_date, raw_changelog = self.parse_post_details(post_date, post_content)
-        patch_changelog = self.parse_changelog(raw_changelog)
-        self.id = patch_id
-        self.date = patch_date
-        self.changelog = patch_changelog
+        raw_date, raw_content = post.find_all('div')
+        self.date = datetime.strptime(raw_date.string.strip(), '%B %d, %Y - Valve')
+        raw_content = list(raw_content.stripped_strings)
+        self.id = raw_content[0][:-1]  # remove trailing colon
+        self.parse_changelog(raw_content[2:])
         return None
 
-    def parse_post_details(self, raw_date, raw_contents):
-        post_date = datetime.strptime(raw_date.string.strip(), '%B %d, %Y - Valve')
-        post_content = list(raw_contents.stripped_strings)
-        post_id = post_content[0][:-1]  # remove trailing colon
-        post_changelog = post_content[2:]
-        return post_id, post_date, post_changelog
-
     def parse_changelog(self, raw_changelog):
-        changelog = {'heroes/items': collections.OrderedDict([]),
-                     'other': []}
+        self.changelog = {'heroes/items': collections.OrderedDict([]),
+                          'other': []}
         for change in raw_changelog:
             change = change.lstrip('* ').split(': ')
             if len(change) == 2:
                 hero = change[0]
-                if hero in changelog['heroes/items'].keys():
-                    changelog['heroes/items'][hero].append(change[1])
+                if hero in self.changelog['heroes/items'].keys():
+                    self.changelog['heroes/items'][hero].append(change[1])
                 else:
-                    changelog['heroes/items'][hero] = [change[1]]
+                    self.changelog['heroes/items'][hero] = [change[1]]
             else:
-                changelog['other'].append(change)
-        return changelog
+                self.changelog['other'].append(change)
+        return None
 
     def generate_page(self):
+        """
+        writes the contents of changelog to an HTML file
+        :return:
+        """
         with open('patches/{}.html'.format(self.id.upper()), 'w') as patchfile:
             patchfile.write('<!DOCTYPE html>\n' +
                             '<head>\n' +
@@ -149,4 +160,5 @@ class D2Patch:
 if __name__ == '__main__':
     patch = D2Patch()
     patch.fetch_new_post(input('Enter URL of blog post\n>>> '))
-    patch.fetch_icons()
+    patch.fetch_hero_icons()
+    patch.fetch_item_icons()
