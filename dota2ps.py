@@ -4,17 +4,19 @@ import collections
 from datetime import datetime
 import requests
 import urllib.request
-from bs4 import BeautifulSoup  # https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+from lxml import html
 
 
 class D2Patch:
-    def __init__(self):
+    def __init__(self, key):
         self.ready = False
         self.url = ''
         self.id = ''
         self.date = datetime.now()
         self.changelog = {'heroes/items': collections.OrderedDict([]),
                           'other': []}
+        self.icon_url = 'http://cdn.dota2.com/apps/dota2/images/'
+        self.api_key = key
 
     def fetch_new_post(self, post_url):
         """
@@ -25,92 +27,95 @@ class D2Patch:
         r = requests.get(post_url)
         if r.status_code == 200:
             self.url = post_url
-            self.parse_post_document(BeautifulSoup(r.text, 'html.parser'))
+            self.parse_post_document(r)
             self.generate_page()
         else:
             print('There was an error in retreiving the blog post, please try again.')
         return None
 
-    @staticmethod
-    def fetch_hero_icons():
+    def fetch_hero_icons(self):
         """
-        reads hero page of dota2.gamepedia.com for hero icons and downloads any new icons
-        hero names are also kept up to date ("Necrolyte" --> "Necrophos")
+        pings the Steam API for a list of heroes
         :return:
         """
-        if 'icons' not in os.listdir(os.getcwd()):
-            os.mkdir('icons')
-
-        r = requests.get('https://dota2.gamepedia.com/Heroes')
+        r = requests.get('http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/', params={'key': self.api_key,
+                                                                                                  'language': 'en'})
         if r.status_code == 200:
             try:
-                hero_document = BeautifulSoup(r.text, 'html.parser')
-                # icons are stored in classed tables within the main page content
-                print('Processing hero icons...')
-                for table in hero_document.find(id='mw-content-text').find_all(class_='wikitable'):
-                    for img in table.find_all('img'):
-                        hero_url = img['src']
-                        hero_name = re.search('/[^/]*\?', hero_url).group()[7:-10]
-                        hero_name = hero_name.replace('%27', '\'').lower()
-                        if '{}.png'.format(hero_name) not in os.listdir('icons'):
-                            print(hero_name, end=', ', flush=True)
-                            urllib.request.urlretrieve(hero_url, 'icons\\{}.png'.format(hero_url))
-                print('DONE!')
-            except:
-                print('Unable to parse document, please try again')
+                print('\nDownloading hero icons\nProcessing ', end=' ')
+                heroes = r.json()['result']['heroes']
+                failed = []
+                for hero in heroes:
+                    hero_id = hero['name'] #may be old or outdated, used purely to retrieve icon
+                    hero_id = hero_id[14:]
+                    hero_name = hero['localized_name']
+                    print(hero_name, end=', ', flush=True)
+                    self.download_icon('heroes/{}_lg.png'.format(hero_id), hero_name)
+                print('DONE!\nThe following icons could not be downloaded:\n' +
+                      'NOTE: Some of these may just be the result of Valve not keeping their API up-to-date\n' +
+                      ', '.join(failed))
+            except Exception as err:
+                print(err)
         else:
-            print('Unable to obtain document from {}, status code'.format(r.url, r.status_code))
-        return None
+            print('There was an error in accessing the Steam API')
 
-    @staticmethod
-    def fetch_item_icons():
+    def fetch_item_icons(self):
         """
-        reads icon page of dota2.com for item icons and downloads any new icons
-        some names are outdated, this will need to be rectified
+        pings the Steam API for a list of items
         :return:
         """
-        if 'icons' not in os.listdir(os.getcwd()):
-            os.mkdir('icons')
-
-        r = requests.get('https://www.dota2.com/items/')
+        r = requests.get('http://api.steampowered.com/IEconDOTA2_570/GetGameItems/V001/', params={'key': self.api_key,
+                                                                                                  'language': 'en'})
         if r.status_code == 200:
             try:
-                item_document = BeautifulSoup(r.text, 'html.parser')
-                print('Processing item icons...')
-                for column in item_document.find_all(class_='shopColumn'):
-                    # nested loop to avoid header image, which is not encapsulated within a div
-                    for item_container in column.find_all(name='div'):
-                        item_url = item_container.find(name='img')['src']
-                        item_name = re.search('/[^/]*\.png', item_url).group()[1:-7]
-                        if '{}.png'.format(item_name) not in os.listdir('icons'):
-                            print(item_name, end=', ', flush=True)
-                            urllib.request.urlretrieve(item_url, 'icons\\{}.png'.format(item_url))
-                print('DONE!')
-            except:
-                print('Unable to parse document, please try again')
+                print('\nDownloading item icons\nProcessing ', end=' ')
+                items = r.json()['result']['items']
+                failed = []
+                for item in items:
+                    item_id = item['name'] #may be old or outdated, used purely to retrive icon
+                    item_id = item_id[5:]
+                    item_name = item['localized_name']
+                    print(item_name, end=', ', flush=True)
+                    download_result = self.download_icon('items/{}_lg.png'.format(item_id), item_name)
+                    if download_result != 0:
+                        failed.append(download_result)
+                print('DONE!\nThe following icons could not be downloaded:\n' +
+                      'NOTE: Some of these may just be the result of Valve not keeping their API up-to-date\n' +
+                      ', '.join(failed))
+            except Exception as err:
+                print(err)
         else:
-            print('Unable to obtain document from {}, status code'.format(r.url, r.status_code))
-        return None
+            print('There was an error in accessing the Steam API')
 
-    def parse_post_document(self, document):
+    def download_icon(self, slug, name):
+        if '{}.png'.format(name) not in os.listdir('icons'):
+            try:
+                urllib.request.urlretrieve(self.icon_url + slug, 'icons\\{}.png'.format(name))
+            except:
+                return name
+        return 0
+
+    def parse_post_document(self, response):
         """
         strips the title and body from a blog post
-        :param document: the HTML documents as a beautifulsoup object
+        :param response: the requests response object
         :return:
         """
-        post = document.find('div', id='mainLoop').find_all('div')[0]
-        raw_date, raw_content = post.find_all('div')
-        self.date = datetime.strptime(raw_date.string.strip(), '%B %d, %Y - Valve')
-        raw_content = list(raw_content.stripped_strings)
-        self.id = raw_content[0][:-1]  # remove trailing colon
-        self.parse_changelog(raw_content[2:])
+        document = html.fromstring(response.content)
+        raw_date = document.find_class('entry-meta')[0].text_content().strip()
+        raw_content = document.find_class('entry-content')[0].text_content().strip()
+        self.date = datetime.strptime(raw_date, '%B %d, %Y - Valve')
+        line_seperator = re.findall(':=+', raw_content)[0]
+        self.id, raw_changelog = raw_content.split(line_seperator)
+        self.parse_changelog(raw_changelog)
         return None
 
     def parse_changelog(self, raw_changelog):
         self.changelog = {'heroes/items': collections.OrderedDict([]),
                           'other': []}
+        raw_changelog = raw_changelog.lstrip('* ').split('* ')
         for change in raw_changelog:
-            change = change.lstrip('* ').split(': ')
+            change = change.split(': ')
             if len(change) == 2:
                 hero = change[0]
                 if hero in self.changelog['heroes/items'].keys():
@@ -133,7 +138,7 @@ class D2Patch:
                             '    <link rel="stylesheet" href="patch.css"\n' +
                             '</head>\n' +
                             '<body>\n' +
-                            '    <h1>{}</h1>'.format(self.id.upper()) +
+                            '    <h1>{}</h1>\n'.format(self.id.upper()) +
                             '    <h2>GENERAL</h2>\n' +
                             '    <div id="general">\n')
 
@@ -146,19 +151,23 @@ class D2Patch:
             for _ in range(len(self.changelog['heroes/items'])):
                 hero, change = self.changelog['heroes/items'].popitem(last=False)
                 patchfile.write('        <div class="hero">\n' +
-                                '            <img src="../icons/{}.png">\n'.format(hero.replace(' ', '_')) +
+                                '            <img src="../icons/{}.png">\n'.format(hero) +
                                 '            <h3>{}</h3>\n'.format(hero) +
                                 '            <ul>\n' +
                                 '                <li>' +
-                                '\n                <li>'.join([c for c in change]) +
-                                '\n            </ul>\n' +
+                                '</li>\n                <li>'.join([c for c in change]) +
+                                '</li>\n            </ul>\n' +
                                 '        </div>\n')
             patchfile.write('    </div>\n' +
                             '</body>')
         return None
 
+
+if 'icons' not in os.listdir():
+    os.mkdir('icons')
+
 if __name__ == '__main__':
-    patch = D2Patch()
-    patch.fetch_new_post(input('Enter URL of blog post\n>>> '))
+    patch = D2Patch(input('Please enter your Steam API Key\n>>> '))
     patch.fetch_hero_icons()
     patch.fetch_item_icons()
+    patch.fetch_new_post(input('Enter URL of blog post\n>>> '))
