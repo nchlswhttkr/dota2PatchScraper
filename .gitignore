@@ -1,6 +1,5 @@
 .idea/**
-icons/**
+media/icons/**
 patches/**
-!patches/patch.css
-icon_scraper.py
-scraper.py
+samples/**
+old.py
