@@ -16,10 +16,11 @@ import json
 # TODO: output patch as json
 # TODO: compatability with updates via steamcomunity.com
 # TODO: regex for date recognition
-# TODO: create changelog object
 # TODO: disable writing for unprepared patches
 # TODO: general notes on naming conventions
 # TODO: better control of public/private  methods
+# TODO: provide README documentation
+# TODO: limit item downloads for recipes/river vials
 
 
 class DOTAPatch:
@@ -143,8 +144,13 @@ class DOTAPatch:
         writes the patch notes to a new folder within the specified directory
         :param write_destination: local destination to write patch contents to
         :param open_on_completion: open the HTML file when the page is generated, useful for testing
-        :return:
+        :return: none
         """
+
+        # cannot generate changelog if it was unable to be parsed
+        if self.changelog is None:
+            self._log_error(Exception("Cannot write patch, scrape failed"))
+            return None
 
         # download hero icons, unless the user preferences otherwise
         if check_for_icons:
@@ -251,7 +257,7 @@ class DOTAPatch:
         local_icons = os.listdir(save_icons_to)
 
         for hero in hero_list:
-            hero_filename = self._sanitise_name(hero['localized_name'])
+            hero_filename = '{}.png'.format(self._sanitise_name(hero['localized_name']))
 
             if hero_filename not in local_icons:
                 # some heroes have a different name within the games files, we must reference by this
@@ -260,21 +266,21 @@ class DOTAPatch:
 
                 # fetch item from the CDN
                 download_url = '{}/heroes/{}_lg.png'.format(self._icon_url_path, hero_ref_name)
-                write_file_location = '{}/{}.png'.format(save_icons_to, hero_filename)
+                write_file_location = '{}/{}'.format(save_icons_to, hero_filename)
                 try:
                     urllib.request.urlretrieve(download_url, write_file_location)
                 except urllib.request.HTTPError:
                     self._log_error(Exception('Could not save icon of {} / {}'.format(hero['localized_name'], hero['name'])))
 
         for item in item_list:
-            item_filename = self._sanitise_name(item['localized_name'])
+            item_filename = '{}.png'.format(self._sanitise_name(item['localized_name']))
 
             if item_filename not in local_icons:
                 item_ref_name = item['name'][5:]  # strip 'item_'
 
                 # fetch item from the CDN
                 download_url = '{}/items/{}_lg.png'.format(self._icon_url_path, item_ref_name)
-                write_file_location = '{}/{}.png'.format(save_icons_to, item_filename)
+                write_file_location = '{}/{}'.format(save_icons_to, item_filename)
                 try:
                     urllib.request.urlretrieve(download_url, write_file_location)
                 except urllib.request.HTTPError:
@@ -407,4 +413,4 @@ class DOTAChangelog:
 
 if __name__ == '__main__':
     mypatch = DOTAPatch(input("Enter patch post URL > "))
-    mypatch.generate_page(open_on_completion=True)
+    mypatch.generate_page(check_for_icons=True, open_on_completion=True)
