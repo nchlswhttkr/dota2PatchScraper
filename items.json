@@ -6,7 +6,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Blink Dagger"
+    "localized_name": "Blink Dagger",
+    "sanitised_name": "blinkdagger"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Blades of Attack"
+    "localized_name": "Blades of Attack",
+    "sanitised_name": "bladesofattack"
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Broadsword"
+    "localized_name": "Broadsword",
+    "sanitised_name": "broadsword"
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Chainmail"
+    "localized_name": "Chainmail",
+    "sanitised_name": "chainmail"
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Claymore"
+    "localized_name": "Claymore",
+    "sanitised_name": "claymore"
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Helm of Iron Will"
+    "localized_name": "Helm of Iron Will",
+    "sanitised_name": "helmofironwill"
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Javelin"
+    "localized_name": "Javelin",
+    "sanitised_name": "javelin"
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Mithril Hammer"
+    "localized_name": "Mithril Hammer",
+    "sanitised_name": "mithrilhammer"
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "secret_shop": 1,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Platemail"
+    "localized_name": "Platemail",
+    "sanitised_name": "platemail"
   },
   {
     "id": 10,
@@ -87,7 +96,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Quarterstaff"
+    "localized_name": "Quarterstaff",
+    "sanitised_name": "quarterstaff"
   },
   {
     "id": 11,
@@ -96,7 +106,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Quelling Blade"
+    "localized_name": "Quelling Blade",
+    "sanitised_name": "quellingblade"
   },
   {
     "id": 237,
@@ -105,7 +116,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Faerie Fire"
+    "localized_name": "Faerie Fire",
+    "sanitised_name": "faeriefire"
   },
   {
     "id": 265,
@@ -114,7 +126,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Infused Raindrop"
+    "localized_name": "Infused Raindrop",
+    "sanitised_name": "infusedraindrop"
   },
   {
     "id": 244,
@@ -123,7 +136,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Wind Lace"
+    "localized_name": "Wind Lace",
+    "sanitised_name": "windlace"
   },
   {
     "id": 12,
@@ -132,7 +146,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Ring of Protection"
+    "localized_name": "Ring of Protection",
+    "sanitised_name": "ringofprotection"
   },
   {
     "id": 182,
@@ -141,7 +156,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Stout Shield"
+    "localized_name": "Stout Shield",
+    "sanitised_name": "stoutshield"
   },
   {
     "id": 246,
@@ -150,7 +166,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Moon Shard"
+    "localized_name": "Recipe: Moon Shard",
+    "sanitised_name": "recipemoonshard"
   },
   {
     "id": 247,
@@ -159,7 +176,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Moon Shard"
+    "localized_name": "Moon Shard",
+    "sanitised_name": "moonshard"
   },
   {
     "id": 13,
@@ -168,7 +186,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Gauntlets of Strength"
+    "localized_name": "Gauntlets of Strength",
+    "sanitised_name": "gauntletsofstrength"
   },
   {
     "id": 14,
@@ -177,7 +196,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Slippers of Agility"
+    "localized_name": "Slippers of Agility",
+    "sanitised_name": "slippersofagility"
   },
   {
     "id": 15,
@@ -186,7 +206,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Mantle of Intelligence"
+    "localized_name": "Mantle of Intelligence",
+    "sanitised_name": "mantleofintelligence"
   },
   {
     "id": 16,
@@ -195,7 +216,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Iron Branch"
+    "localized_name": "Iron Branch",
+    "sanitised_name": "ironbranch"
   },
   {
     "id": 17,
@@ -204,7 +226,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Belt of Strength"
+    "localized_name": "Belt of Strength",
+    "sanitised_name": "beltofstrength"
   },
   {
     "id": 18,
@@ -213,7 +236,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Band of Elvenskin"
+    "localized_name": "Band of Elvenskin",
+    "sanitised_name": "bandofelvenskin"
   },
   {
     "id": 19,
@@ -222,7 +246,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Robe of the Magi"
+    "localized_name": "Robe of the Magi",
+    "sanitised_name": "robeofthemagi"
   },
   {
     "id": 20,
@@ -231,7 +256,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Circlet"
+    "localized_name": "Circlet",
+    "sanitised_name": "circlet"
   },
   {
     "id": 21,
@@ -240,7 +266,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Ogre Club"
+    "localized_name": "Ogre Club",
+    "sanitised_name": "ogreclub"
   },
   {
     "id": 22,
@@ -249,7 +276,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Blade of Alacrity"
+    "localized_name": "Blade of Alacrity",
+    "sanitised_name": "bladeofalacrity"
   },
   {
     "id": 23,
@@ -258,7 +286,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Staff of Wizardry"
+    "localized_name": "Staff of Wizardry",
+    "sanitised_name": "staffofwizardry"
   },
   {
     "id": 24,
@@ -267,7 +296,8 @@
     "secret_shop": 1,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Ultimate Orb"
+    "localized_name": "Ultimate Orb",
+    "sanitised_name": "ultimateorb"
   },
   {
     "id": 25,
@@ -276,7 +306,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Gloves of Haste"
+    "localized_name": "Gloves of Haste",
+    "sanitised_name": "glovesofhaste"
   },
   {
     "id": 26,
@@ -285,7 +316,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Morbid Mask"
+    "localized_name": "Morbid Mask",
+    "sanitised_name": "morbidmask"
   },
   {
     "id": 27,
@@ -294,7 +326,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Ring of Regen"
+    "localized_name": "Ring of Regen",
+    "sanitised_name": "ringofregen"
   },
   {
     "id": 28,
@@ -303,7 +336,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Sage's Mask"
+    "localized_name": "Sage's Mask",
+    "sanitised_name": "sagesmask"
   },
   {
     "id": 29,
@@ -312,7 +346,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Boots of Speed"
+    "localized_name": "Boots of Speed",
+    "sanitised_name": "bootsofspeed"
   },
   {
     "id": 30,
@@ -321,7 +356,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Gem of True Sight"
+    "localized_name": "Gem of True Sight",
+    "sanitised_name": "gemoftruesight"
   },
   {
     "id": 31,
@@ -330,7 +366,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Cloak"
+    "localized_name": "Cloak",
+    "sanitised_name": "cloak"
   },
   {
     "id": 32,
@@ -339,7 +376,8 @@
     "secret_shop": 1,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Talisman of Evasion"
+    "localized_name": "Talisman of Evasion",
+    "sanitised_name": "talismanofevasion"
   },
   {
     "id": 33,
@@ -348,7 +386,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Cheese"
+    "localized_name": "Cheese",
+    "sanitised_name": "cheese"
   },
   {
     "id": 34,
@@ -357,7 +396,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Magic Stick"
+    "localized_name": "Magic Stick",
+    "sanitised_name": "magicstick"
   },
   {
     "id": 35,
@@ -366,7 +406,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Magic Wand"
+    "localized_name": "Recipe: Magic Wand",
+    "sanitised_name": "recipemagicwand"
   },
   {
     "id": 36,
@@ -375,7 +416,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Magic Wand"
+    "localized_name": "Magic Wand",
+    "sanitised_name": "magicwand"
   },
   {
     "id": 37,
@@ -384,7 +426,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Ghost Scepter"
+    "localized_name": "Ghost Scepter",
+    "sanitised_name": "ghostscepter"
   },
   {
     "id": 38,
@@ -393,7 +436,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Clarity"
+    "localized_name": "Clarity",
+    "sanitised_name": "clarity"
   },
   {
     "id": 216,
@@ -402,7 +446,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Enchanted Mango"
+    "localized_name": "Enchanted Mango",
+    "sanitised_name": "enchantedmango"
   },
   {
     "id": 39,
@@ -411,7 +456,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Healing Salve"
+    "localized_name": "Healing Salve",
+    "sanitised_name": "healingsalve"
   },
   {
     "id": 40,
@@ -420,7 +466,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Dust of Appearance"
+    "localized_name": "Dust of Appearance",
+    "sanitised_name": "dustofappearance"
   },
   {
     "id": 41,
@@ -429,7 +476,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Bottle"
+    "localized_name": "Bottle",
+    "sanitised_name": "bottle"
   },
   {
     "id": 42,
@@ -438,7 +486,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Observer Ward"
+    "localized_name": "Observer Ward",
+    "sanitised_name": "observerward"
   },
   {
     "id": 43,
@@ -447,7 +496,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Sentry Ward"
+    "localized_name": "Sentry Ward",
+    "sanitised_name": "sentryward"
   },
   {
     "id": 217,
@@ -456,7 +506,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Observer and Sentry Wards"
+    "localized_name": "Recipe: Observer and Sentry Wards",
+    "sanitised_name": "recipeobserverandsentrywards"
   },
   {
     "id": 218,
@@ -465,7 +516,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Observer and Sentry Wards"
+    "localized_name": "Observer and Sentry Wards",
+    "sanitised_name": "observerandsentrywards"
   },
   {
     "id": 44,
@@ -474,7 +526,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Tango"
+    "localized_name": "Tango",
+    "sanitised_name": "tango"
   },
   {
     "id": 241,
@@ -483,7 +536,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Tango (Shared)"
+    "localized_name": "Tango (Shared)",
+    "sanitised_name": "tango(shared)"
   },
   {
     "id": 45,
@@ -492,7 +546,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Animal Courier"
+    "localized_name": "Animal Courier",
+    "sanitised_name": "animalcourier"
   },
   {
     "id": 46,
@@ -501,7 +556,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Town Portal Scroll"
+    "localized_name": "Town Portal Scroll",
+    "sanitised_name": "townportalscroll"
   },
   {
     "id": 47,
@@ -510,7 +566,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Boots of Travel"
+    "localized_name": "Recipe: Boots of Travel",
+    "sanitised_name": "recipebootsoftravel"
   },
   {
     "id": 219,
@@ -519,7 +576,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Boots of Travel"
+    "localized_name": "Recipe: Boots of Travel",
+    "sanitised_name": "recipebootsoftravel"
   },
   {
     "id": 48,
@@ -528,7 +586,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Boots of Travel"
+    "localized_name": "Boots of Travel",
+    "sanitised_name": "bootsoftravel"
   },
   {
     "id": 220,
@@ -537,7 +596,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Boots of Travel"
+    "localized_name": "Boots of Travel",
+    "sanitised_name": "bootsoftravel"
   },
   {
     "id": 49,
@@ -546,7 +606,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Phase Boots"
+    "localized_name": "Recipe: Phase Boots",
+    "sanitised_name": "recipephaseboots"
   },
   {
     "id": 50,
@@ -555,7 +616,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Phase Boots"
+    "localized_name": "Phase Boots",
+    "sanitised_name": "phaseboots"
   },
   {
     "id": 51,
@@ -564,7 +626,8 @@
     "secret_shop": 1,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Demon Edge"
+    "localized_name": "Demon Edge",
+    "sanitised_name": "demonedge"
   },
   {
     "id": 52,
@@ -573,7 +636,8 @@
     "secret_shop": 1,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Eaglesong"
+    "localized_name": "Eaglesong",
+    "sanitised_name": "eaglesong"
   },
   {
     "id": 53,
@@ -582,7 +646,8 @@
     "secret_shop": 1,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Reaver"
+    "localized_name": "Reaver",
+    "sanitised_name": "reaver"
   },
   {
     "id": 54,
@@ -591,7 +656,8 @@
     "secret_shop": 1,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Sacred Relic"
+    "localized_name": "Sacred Relic",
+    "sanitised_name": "sacredrelic"
   },
   {
     "id": 55,
@@ -600,7 +666,8 @@
     "secret_shop": 1,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Hyperstone"
+    "localized_name": "Hyperstone",
+    "sanitised_name": "hyperstone"
   },
   {
     "id": 56,
@@ -609,7 +676,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Ring of Health"
+    "localized_name": "Ring of Health",
+    "sanitised_name": "ringofhealth"
   },
   {
     "id": 57,
@@ -618,7 +686,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Void Stone"
+    "localized_name": "Void Stone",
+    "sanitised_name": "voidstone"
   },
   {
     "id": 58,
@@ -627,7 +696,8 @@
     "secret_shop": 1,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Mystic Staff"
+    "localized_name": "Mystic Staff",
+    "sanitised_name": "mysticstaff"
   },
   {
     "id": 59,
@@ -636,7 +706,8 @@
     "secret_shop": 1,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Energy Booster"
+    "localized_name": "Energy Booster",
+    "sanitised_name": "energybooster"
   },
   {
     "id": 60,
@@ -645,7 +716,8 @@
     "secret_shop": 1,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Point Booster"
+    "localized_name": "Point Booster",
+    "sanitised_name": "pointbooster"
   },
   {
     "id": 61,
@@ -654,7 +726,8 @@
     "secret_shop": 1,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Vitality Booster"
+    "localized_name": "Vitality Booster",
+    "sanitised_name": "vitalitybooster"
   },
   {
     "id": 62,
@@ -663,7 +736,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Power Treads"
+    "localized_name": "Recipe: Power Treads",
+    "sanitised_name": "recipepowertreads"
   },
   {
     "id": 63,
@@ -672,7 +746,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Power Treads"
+    "localized_name": "Power Treads",
+    "sanitised_name": "powertreads"
   },
   {
     "id": 64,
@@ -681,7 +756,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Hand of Midas"
+    "localized_name": "Recipe: Hand of Midas",
+    "sanitised_name": "recipehandofmidas"
   },
   {
     "id": 65,
@@ -690,7 +766,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Hand of Midas"
+    "localized_name": "Hand of Midas",
+    "sanitised_name": "handofmidas"
   },
   {
     "id": 66,
@@ -699,7 +776,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Oblivion Staff"
+    "localized_name": "Recipe: Oblivion Staff",
+    "sanitised_name": "recipeoblivionstaff"
   },
   {
     "id": 67,
@@ -708,7 +786,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Oblivion Staff"
+    "localized_name": "Oblivion Staff",
+    "sanitised_name": "oblivionstaff"
   },
   {
     "id": 68,
@@ -717,7 +796,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Perseverance"
+    "localized_name": "Recipe: Perseverance",
+    "sanitised_name": "recipeperseverance"
   },
   {
     "id": 69,
@@ -726,7 +806,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Perseverance"
+    "localized_name": "Perseverance",
+    "sanitised_name": "perseverance"
   },
   {
     "id": 70,
@@ -735,7 +816,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Poor Man's Shield"
+    "localized_name": "Recipe: Poor Man's Shield",
+    "sanitised_name": "recipepoormansshield"
   },
   {
     "id": 71,
@@ -744,7 +826,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Poor Man's Shield"
+    "localized_name": "Poor Man's Shield",
+    "sanitised_name": "poormansshield"
   },
   {
     "id": 72,
@@ -753,7 +836,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Bracer"
+    "localized_name": "Recipe: Bracer",
+    "sanitised_name": "recipebracer"
   },
   {
     "id": 73,
@@ -762,7 +846,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Bracer"
+    "localized_name": "Bracer",
+    "sanitised_name": "bracer"
   },
   {
     "id": 74,
@@ -771,7 +856,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Wraith Band"
+    "localized_name": "Recipe: Wraith Band",
+    "sanitised_name": "recipewraithband"
   },
   {
     "id": 75,
@@ -780,7 +866,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Wraith Band"
+    "localized_name": "Wraith Band",
+    "sanitised_name": "wraithband"
   },
   {
     "id": 76,
@@ -789,7 +876,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Null Talisman"
+    "localized_name": "Recipe: Null Talisman",
+    "sanitised_name": "recipenulltalisman"
   },
   {
     "id": 77,
@@ -798,7 +886,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Null Talisman"
+    "localized_name": "Null Talisman",
+    "sanitised_name": "nulltalisman"
   },
   {
     "id": 78,
@@ -807,7 +896,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Mekansm"
+    "localized_name": "Recipe: Mekansm",
+    "sanitised_name": "recipemekansm"
   },
   {
     "id": 79,
@@ -816,7 +906,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Mekansm"
+    "localized_name": "Mekansm",
+    "sanitised_name": "mekansm"
   },
   {
     "id": 80,
@@ -825,7 +916,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Vladmir's Offering"
+    "localized_name": "Recipe: Vladmir's Offering",
+    "sanitised_name": "recipevladmirsoffering"
   },
   {
     "id": 81,
@@ -834,7 +926,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Vladmir's Offering"
+    "localized_name": "Vladmir's Offering",
+    "sanitised_name": "vladmirsoffering"
   },
   {
     "id": 84,
@@ -843,7 +936,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Flying Courier"
+    "localized_name": "Flying Courier",
+    "sanitised_name": "flyingcourier"
   },
   {
     "id": 85,
@@ -852,7 +946,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Buckler"
+    "localized_name": "Recipe: Buckler",
+    "sanitised_name": "recipebuckler"
   },
   {
     "id": 86,
@@ -861,7 +956,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Buckler"
+    "localized_name": "Buckler",
+    "sanitised_name": "buckler"
   },
   {
     "id": 87,
@@ -870,7 +966,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Ring of Basilius"
+    "localized_name": "Recipe: Ring of Basilius",
+    "sanitised_name": "reciperingofbasilius"
   },
   {
     "id": 88,
@@ -879,7 +976,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Ring of Basilius"
+    "localized_name": "Ring of Basilius",
+    "sanitised_name": "ringofbasilius"
   },
   {
     "id": 89,
@@ -888,7 +986,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Pipe of Insight"
+    "localized_name": "Recipe: Pipe of Insight",
+    "sanitised_name": "recipepipeofinsight"
   },
   {
     "id": 90,
@@ -897,7 +996,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Pipe of Insight"
+    "localized_name": "Pipe of Insight",
+    "sanitised_name": "pipeofinsight"
   },
   {
     "id": 91,
@@ -906,7 +1006,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Urn of Shadows"
+    "localized_name": "Recipe: Urn of Shadows",
+    "sanitised_name": "recipeurnofshadows"
   },
   {
     "id": 92,
@@ -915,7 +1016,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Urn of Shadows"
+    "localized_name": "Urn of Shadows",
+    "sanitised_name": "urnofshadows"
   },
   {
     "id": 93,
@@ -924,7 +1026,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Headdress"
+    "localized_name": "Recipe: Headdress",
+    "sanitised_name": "recipeheaddress"
   },
   {
     "id": 94,
@@ -933,7 +1036,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Headdress"
+    "localized_name": "Headdress",
+    "sanitised_name": "headdress"
   },
   {
     "id": 95,
@@ -942,7 +1046,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Scythe of Vyse"
+    "localized_name": "Recipe: Scythe of Vyse",
+    "sanitised_name": "recipescytheofvyse"
   },
   {
     "id": 96,
@@ -951,7 +1056,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Scythe of Vyse"
+    "localized_name": "Scythe of Vyse",
+    "sanitised_name": "scytheofvyse"
   },
   {
     "id": 97,
@@ -960,7 +1066,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Orchid Malevolence"
+    "localized_name": "Recipe: Orchid Malevolence",
+    "sanitised_name": "recipeorchidmalevolence"
   },
   {
     "id": 98,
@@ -969,7 +1076,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Orchid Malevolence"
+    "localized_name": "Orchid Malevolence",
+    "sanitised_name": "orchidmalevolence"
   },
   {
     "id": 245,
@@ -978,7 +1086,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Bloodthorn"
+    "localized_name": "Recipe: Bloodthorn",
+    "sanitised_name": "recipebloodthorn"
   },
   {
     "id": 250,
@@ -987,7 +1096,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Bloodthorn"
+    "localized_name": "Bloodthorn",
+    "sanitised_name": "bloodthorn"
   },
   {
     "id": 251,
@@ -996,7 +1106,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Echo Sabre"
+    "localized_name": "Recipe: Echo Sabre",
+    "sanitised_name": "recipeechosabre"
   },
   {
     "id": 252,
@@ -1005,7 +1116,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Echo Sabre"
+    "localized_name": "Echo Sabre",
+    "sanitised_name": "echosabre"
   },
   {
     "id": 99,
@@ -1014,7 +1126,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Eul's Scepter of Divinity"
+    "localized_name": "Recipe: Eul's Scepter of Divinity",
+    "sanitised_name": "recipeeulsscepterofdivinity"
   },
   {
     "id": 100,
@@ -1023,7 +1136,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Eul's Scepter of Divinity"
+    "localized_name": "Eul's Scepter of Divinity",
+    "sanitised_name": "eulsscepterofdivinity"
   },
   {
     "id": 233,
@@ -1032,7 +1146,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Aether Lens"
+    "localized_name": "Recipe: Aether Lens",
+    "sanitised_name": "recipeaetherlens"
   },
   {
     "id": 232,
@@ -1041,7 +1156,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Aether Lens"
+    "localized_name": "Aether Lens",
+    "sanitised_name": "aetherlens"
   },
   {
     "id": 101,
@@ -1050,7 +1166,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Force Staff"
+    "localized_name": "Recipe: Force Staff",
+    "sanitised_name": "recipeforcestaff"
   },
   {
     "id": 102,
@@ -1059,7 +1176,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Force Staff"
+    "localized_name": "Force Staff",
+    "sanitised_name": "forcestaff"
   },
   {
     "id": 262,
@@ -1068,7 +1186,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Hurricane Pike"
+    "localized_name": "Recipe: Hurricane Pike",
+    "sanitised_name": "recipehurricanepike"
   },
   {
     "id": 263,
@@ -1077,7 +1196,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Hurricane Pike"
+    "localized_name": "Hurricane Pike",
+    "sanitised_name": "hurricanepike"
   },
   {
     "id": 103,
@@ -1086,7 +1206,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Dagon"
+    "localized_name": "Recipe: Dagon",
+    "sanitised_name": "recipedagon"
   },
   {
     "id": 197,
@@ -1095,7 +1216,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Dagon"
+    "localized_name": "Recipe: Dagon",
+    "sanitised_name": "recipedagon"
   },
   {
     "id": 198,
@@ -1104,7 +1226,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Dagon"
+    "localized_name": "Recipe: Dagon",
+    "sanitised_name": "recipedagon"
   },
   {
     "id": 199,
@@ -1113,7 +1236,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Dagon"
+    "localized_name": "Recipe: Dagon",
+    "sanitised_name": "recipedagon"
   },
   {
     "id": 200,
@@ -1122,7 +1246,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Dagon"
+    "localized_name": "Recipe: Dagon",
+    "sanitised_name": "recipedagon"
   },
   {
     "id": 104,
@@ -1131,7 +1256,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Dagon"
+    "localized_name": "Dagon",
+    "sanitised_name": "dagon"
   },
   {
     "id": 201,
@@ -1140,7 +1266,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Dagon"
+    "localized_name": "Dagon",
+    "sanitised_name": "dagon"
   },
   {
     "id": 202,
@@ -1149,7 +1276,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Dagon"
+    "localized_name": "Dagon",
+    "sanitised_name": "dagon"
   },
   {
     "id": 203,
@@ -1158,7 +1286,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Dagon"
+    "localized_name": "Dagon",
+    "sanitised_name": "dagon"
   },
   {
     "id": 204,
@@ -1167,7 +1296,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Dagon"
+    "localized_name": "Dagon",
+    "sanitised_name": "dagon"
   },
   {
     "id": 105,
@@ -1176,7 +1306,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Necronomicon"
+    "localized_name": "Recipe: Necronomicon",
+    "sanitised_name": "recipenecronomicon"
   },
   {
     "id": 191,
@@ -1185,7 +1316,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Necronomicon"
+    "localized_name": "Recipe: Necronomicon",
+    "sanitised_name": "recipenecronomicon"
   },
   {
     "id": 192,
@@ -1194,7 +1326,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Necronomicon"
+    "localized_name": "Recipe: Necronomicon",
+    "sanitised_name": "recipenecronomicon"
   },
   {
     "id": 106,
@@ -1203,7 +1336,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Necronomicon"
+    "localized_name": "Necronomicon",
+    "sanitised_name": "necronomicon"
   },
   {
     "id": 193,
@@ -1212,7 +1346,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Necronomicon"
+    "localized_name": "Necronomicon",
+    "sanitised_name": "necronomicon"
   },
   {
     "id": 194,
@@ -1221,7 +1356,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Necronomicon"
+    "localized_name": "Necronomicon",
+    "sanitised_name": "necronomicon"
   },
   {
     "id": 107,
@@ -1230,7 +1366,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Aghanim's Scepter"
+    "localized_name": "Recipe: Aghanim's Scepter",
+    "sanitised_name": "recipeaghanimsscepter"
   },
   {
     "id": 108,
@@ -1239,7 +1376,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Aghanim's Scepter"
+    "localized_name": "Aghanim's Scepter",
+    "sanitised_name": "aghanimsscepter"
   },
   {
     "id": 109,
@@ -1248,7 +1386,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Refresher Orb"
+    "localized_name": "Recipe: Refresher Orb",
+    "sanitised_name": "reciperefresherorb"
   },
   {
     "id": 110,
@@ -1257,7 +1396,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Refresher Orb"
+    "localized_name": "Refresher Orb",
+    "sanitised_name": "refresherorb"
   },
   {
     "id": 111,
@@ -1266,7 +1406,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Assault Cuirass"
+    "localized_name": "Recipe: Assault Cuirass",
+    "sanitised_name": "recipeassaultcuirass"
   },
   {
     "id": 112,
@@ -1275,7 +1416,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Assault Cuirass"
+    "localized_name": "Assault Cuirass",
+    "sanitised_name": "assaultcuirass"
   },
   {
     "id": 113,
@@ -1284,7 +1426,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Heart of Tarrasque"
+    "localized_name": "Recipe: Heart of Tarrasque",
+    "sanitised_name": "recipeheartoftarrasque"
   },
   {
     "id": 114,
@@ -1293,7 +1436,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Heart of Tarrasque"
+    "localized_name": "Heart of Tarrasque",
+    "sanitised_name": "heartoftarrasque"
   },
   {
     "id": 115,
@@ -1302,7 +1446,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Black King Bar"
+    "localized_name": "Recipe: Black King Bar",
+    "sanitised_name": "recipeblackkingbar"
   },
   {
     "id": 116,
@@ -1311,7 +1456,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Black King Bar"
+    "localized_name": "Black King Bar",
+    "sanitised_name": "blackkingbar"
   },
   {
     "id": 117,
@@ -1320,7 +1466,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Aegis of the Immortal"
+    "localized_name": "Aegis of the Immortal",
+    "sanitised_name": "aegisoftheimmortal"
   },
   {
     "id": 118,
@@ -1329,7 +1476,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Shiva's Guard"
+    "localized_name": "Recipe: Shiva's Guard",
+    "sanitised_name": "recipeshivasguard"
   },
   {
     "id": 119,
@@ -1338,7 +1486,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Shiva's Guard"
+    "localized_name": "Shiva's Guard",
+    "sanitised_name": "shivasguard"
   },
   {
     "id": 120,
@@ -1347,7 +1496,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Bloodstone"
+    "localized_name": "Recipe: Bloodstone",
+    "sanitised_name": "recipebloodstone"
   },
   {
     "id": 121,
@@ -1356,7 +1506,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Bloodstone"
+    "localized_name": "Bloodstone",
+    "sanitised_name": "bloodstone"
   },
   {
     "id": 122,
@@ -1365,7 +1516,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Linken's Sphere"
+    "localized_name": "Recipe: Linken's Sphere",
+    "sanitised_name": "recipelinkenssphere"
   },
   {
     "id": 123,
@@ -1374,7 +1526,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Linken's Sphere"
+    "localized_name": "Linken's Sphere",
+    "sanitised_name": "linkenssphere"
   },
   {
     "id": 221,
@@ -1383,7 +1536,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Lotus Orb"
+    "localized_name": "Recipe: Lotus Orb",
+    "sanitised_name": "recipelotusorb"
   },
   {
     "id": 226,
@@ -1392,7 +1546,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Lotus Orb"
+    "localized_name": "Lotus Orb",
+    "sanitised_name": "lotusorb"
   },
   {
     "id": 124,
@@ -1401,7 +1556,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Vanguard"
+    "localized_name": "Recipe: Vanguard",
+    "sanitised_name": "recipevanguard"
   },
   {
     "id": 125,
@@ -1410,7 +1566,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Vanguard"
+    "localized_name": "Vanguard",
+    "sanitised_name": "vanguard"
   },
   {
     "id": 243,
@@ -1419,7 +1576,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Crimson Guard"
+    "localized_name": "Recipe: Crimson Guard",
+    "sanitised_name": "recipecrimsonguard"
   },
   {
     "id": 242,
@@ -1428,7 +1586,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Crimson Guard"
+    "localized_name": "Crimson Guard",
+    "sanitised_name": "crimsonguard"
   },
   {
     "id": 126,
@@ -1437,7 +1596,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Blade Mail"
+    "localized_name": "Recipe: Blade Mail",
+    "sanitised_name": "recipeblademail"
   },
   {
     "id": 127,
@@ -1446,7 +1606,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Blade Mail"
+    "localized_name": "Blade Mail",
+    "sanitised_name": "blademail"
   },
   {
     "id": 128,
@@ -1455,7 +1616,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Soul Booster"
+    "localized_name": "Recipe: Soul Booster",
+    "sanitised_name": "recipesoulbooster"
   },
   {
     "id": 129,
@@ -1464,7 +1626,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Soul Booster"
+    "localized_name": "Soul Booster",
+    "sanitised_name": "soulbooster"
   },
   {
     "id": 130,
@@ -1473,7 +1636,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Hood of Defiance"
+    "localized_name": "Recipe: Hood of Defiance",
+    "sanitised_name": "recipehoodofdefiance"
   },
   {
     "id": 131,
@@ -1482,7 +1646,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Hood of Defiance"
+    "localized_name": "Hood of Defiance",
+    "sanitised_name": "hoodofdefiance"
   },
   {
     "id": 132,
@@ -1491,7 +1656,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Divine Rapier"
+    "localized_name": "Recipe: Divine Rapier",
+    "sanitised_name": "recipedivinerapier"
   },
   {
     "id": 133,
@@ -1500,7 +1666,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Divine Rapier"
+    "localized_name": "Divine Rapier",
+    "sanitised_name": "divinerapier"
   },
   {
     "id": 134,
@@ -1509,7 +1676,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Monkey King Bar"
+    "localized_name": "Recipe: Monkey King Bar",
+    "sanitised_name": "recipemonkeykingbar"
   },
   {
     "id": 135,
@@ -1518,7 +1686,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Monkey King Bar"
+    "localized_name": "Monkey King Bar",
+    "sanitised_name": "monkeykingbar"
   },
   {
     "id": 136,
@@ -1527,7 +1696,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Radiance"
+    "localized_name": "Recipe: Radiance",
+    "sanitised_name": "reciperadiance"
   },
   {
     "id": 137,
@@ -1536,7 +1706,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Radiance"
+    "localized_name": "Radiance",
+    "sanitised_name": "radiance"
   },
   {
     "id": 138,
@@ -1545,7 +1716,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Butterfly"
+    "localized_name": "Recipe: Butterfly",
+    "sanitised_name": "recipebutterfly"
   },
   {
     "id": 139,
@@ -1554,7 +1726,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Butterfly"
+    "localized_name": "Butterfly",
+    "sanitised_name": "butterfly"
   },
   {
     "id": 140,
@@ -1563,7 +1736,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Daedalus"
+    "localized_name": "Recipe: Daedalus",
+    "sanitised_name": "recipedaedalus"
   },
   {
     "id": 141,
@@ -1572,7 +1746,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Daedalus"
+    "localized_name": "Daedalus",
+    "sanitised_name": "daedalus"
   },
   {
     "id": 142,
@@ -1581,7 +1756,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Skull Basher"
+    "localized_name": "Recipe: Skull Basher",
+    "sanitised_name": "recipeskullbasher"
   },
   {
     "id": 143,
@@ -1590,7 +1766,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Skull Basher"
+    "localized_name": "Skull Basher",
+    "sanitised_name": "skullbasher"
   },
   {
     "id": 144,
@@ -1599,7 +1776,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Battle Fury"
+    "localized_name": "Recipe: Battle Fury",
+    "sanitised_name": "recipebattlefury"
   },
   {
     "id": 145,
@@ -1608,7 +1786,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Battle Fury"
+    "localized_name": "Battle Fury",
+    "sanitised_name": "battlefury"
   },
   {
     "id": 146,
@@ -1617,7 +1796,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Manta Style"
+    "localized_name": "Recipe: Manta Style",
+    "sanitised_name": "recipemantastyle"
   },
   {
     "id": 147,
@@ -1626,7 +1806,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Manta Style"
+    "localized_name": "Manta Style",
+    "sanitised_name": "mantastyle"
   },
   {
     "id": 148,
@@ -1635,7 +1816,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Crystalys"
+    "localized_name": "Recipe: Crystalys",
+    "sanitised_name": "recipecrystalys"
   },
   {
     "id": 149,
@@ -1644,7 +1826,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Crystalys"
+    "localized_name": "Crystalys",
+    "sanitised_name": "crystalys"
   },
   {
     "id": 234,
@@ -1653,7 +1836,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Dragon Lance"
+    "localized_name": "Recipe: Dragon Lance",
+    "sanitised_name": "recipedragonlance"
   },
   {
     "id": 236,
@@ -1662,7 +1846,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Dragon Lance"
+    "localized_name": "Dragon Lance",
+    "sanitised_name": "dragonlance"
   },
   {
     "id": 150,
@@ -1671,7 +1856,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Armlet of Mordiggian"
+    "localized_name": "Recipe: Armlet of Mordiggian",
+    "sanitised_name": "recipearmletofmordiggian"
   },
   {
     "id": 151,
@@ -1680,7 +1866,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Armlet of Mordiggian"
+    "localized_name": "Armlet of Mordiggian",
+    "sanitised_name": "armletofmordiggian"
   },
   {
     "id": 183,
@@ -1689,7 +1876,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Shadow Blade"
+    "localized_name": "Recipe: Shadow Blade",
+    "sanitised_name": "recipeshadowblade"
   },
   {
     "id": 152,
@@ -1698,7 +1886,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Shadow Blade"
+    "localized_name": "Shadow Blade",
+    "sanitised_name": "shadowblade"
   },
   {
     "id": 248,
@@ -1707,7 +1896,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Silver Edge"
+    "localized_name": "Recipe: Silver Edge",
+    "sanitised_name": "recipesilveredge"
   },
   {
     "id": 249,
@@ -1716,7 +1906,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Silver Edge"
+    "localized_name": "Silver Edge",
+    "sanitised_name": "silveredge"
   },
   {
     "id": 153,
@@ -1725,7 +1916,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Sange and Yasha"
+    "localized_name": "Recipe: Sange and Yasha",
+    "sanitised_name": "recipesangeandyasha"
   },
   {
     "id": 154,
@@ -1734,7 +1926,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Sange and Yasha"
+    "localized_name": "Sange and Yasha",
+    "sanitised_name": "sangeandyasha"
   },
   {
     "id": 155,
@@ -1743,7 +1936,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Satanic"
+    "localized_name": "Recipe: Satanic",
+    "sanitised_name": "recipesatanic"
   },
   {
     "id": 156,
@@ -1752,7 +1946,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Satanic"
+    "localized_name": "Satanic",
+    "sanitised_name": "satanic"
   },
   {
     "id": 157,
@@ -1761,7 +1956,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Mjollnir"
+    "localized_name": "Recipe: Mjollnir",
+    "sanitised_name": "recipemjollnir"
   },
   {
     "id": 158,
@@ -1770,7 +1966,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Mjollnir"
+    "localized_name": "Mjollnir",
+    "sanitised_name": "mjollnir"
   },
   {
     "id": 159,
@@ -1779,7 +1976,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Eye of Skadi"
+    "localized_name": "Recipe: Eye of Skadi",
+    "sanitised_name": "recipeeyeofskadi"
   },
   {
     "id": 160,
@@ -1788,7 +1986,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Eye of Skadi"
+    "localized_name": "Eye of Skadi",
+    "sanitised_name": "eyeofskadi"
   },
   {
     "id": 161,
@@ -1797,7 +1996,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Sange"
+    "localized_name": "Recipe: Sange",
+    "sanitised_name": "recipesange"
   },
   {
     "id": 162,
@@ -1806,7 +2006,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Sange"
+    "localized_name": "Sange",
+    "sanitised_name": "sange"
   },
   {
     "id": 163,
@@ -1815,7 +2016,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Helm of the Dominator"
+    "localized_name": "Recipe: Helm of the Dominator",
+    "sanitised_name": "recipehelmofthedominator"
   },
   {
     "id": 164,
@@ -1824,7 +2026,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Helm of the Dominator"
+    "localized_name": "Helm of the Dominator",
+    "sanitised_name": "helmofthedominator"
   },
   {
     "id": 165,
@@ -1833,7 +2036,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Maelstrom"
+    "localized_name": "Recipe: Maelstrom",
+    "sanitised_name": "recipemaelstrom"
   },
   {
     "id": 166,
@@ -1842,7 +2046,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Maelstrom"
+    "localized_name": "Maelstrom",
+    "sanitised_name": "maelstrom"
   },
   {
     "id": 167,
@@ -1851,7 +2056,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Desolator"
+    "localized_name": "Recipe: Desolator",
+    "sanitised_name": "recipedesolator"
   },
   {
     "id": 168,
@@ -1860,7 +2066,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Desolator"
+    "localized_name": "Desolator",
+    "sanitised_name": "desolator"
   },
   {
     "id": 169,
@@ -1869,7 +2076,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Yasha"
+    "localized_name": "Recipe: Yasha",
+    "sanitised_name": "recipeyasha"
   },
   {
     "id": 170,
@@ -1878,7 +2086,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Yasha"
+    "localized_name": "Yasha",
+    "sanitised_name": "yasha"
   },
   {
     "id": 171,
@@ -1887,7 +2096,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Mask of Madness"
+    "localized_name": "Recipe: Mask of Madness",
+    "sanitised_name": "recipemaskofmadness"
   },
   {
     "id": 172,
@@ -1896,7 +2106,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Mask of Madness"
+    "localized_name": "Mask of Madness",
+    "sanitised_name": "maskofmadness"
   },
   {
     "id": 173,
@@ -1905,7 +2116,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Diffusal Blade"
+    "localized_name": "Recipe: Diffusal Blade",
+    "sanitised_name": "recipediffusalblade"
   },
   {
     "id": 195,
@@ -1914,7 +2126,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Diffusal Blade"
+    "localized_name": "Recipe: Diffusal Blade",
+    "sanitised_name": "recipediffusalblade"
   },
   {
     "id": 174,
@@ -1923,7 +2136,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Diffusal Blade"
+    "localized_name": "Diffusal Blade",
+    "sanitised_name": "diffusalblade"
   },
   {
     "id": 196,
@@ -1932,7 +2146,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Diffusal Blade"
+    "localized_name": "Diffusal Blade",
+    "sanitised_name": "diffusalblade"
   },
   {
     "id": 175,
@@ -1941,7 +2156,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Ethereal Blade"
+    "localized_name": "Recipe: Ethereal Blade",
+    "sanitised_name": "recipeetherealblade"
   },
   {
     "id": 176,
@@ -1950,7 +2166,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Ethereal Blade"
+    "localized_name": "Ethereal Blade",
+    "sanitised_name": "etherealblade"
   },
   {
     "id": 177,
@@ -1959,7 +2176,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Soul Ring"
+    "localized_name": "Recipe: Soul Ring",
+    "sanitised_name": "recipesoulring"
   },
   {
     "id": 178,
@@ -1968,7 +2186,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Soul Ring"
+    "localized_name": "Soul Ring",
+    "sanitised_name": "soulring"
   },
   {
     "id": 179,
@@ -1977,7 +2196,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Arcane Boots"
+    "localized_name": "Recipe: Arcane Boots",
+    "sanitised_name": "recipearcaneboots"
   },
   {
     "id": 180,
@@ -1986,7 +2206,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Arcane Boots"
+    "localized_name": "Arcane Boots",
+    "sanitised_name": "arcaneboots"
   },
   {
     "id": 228,
@@ -1995,7 +2216,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Octarine Core"
+    "localized_name": "Recipe: Octarine Core",
+    "sanitised_name": "recipeoctarinecore"
   },
   {
     "id": 235,
@@ -2004,7 +2226,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Octarine Core"
+    "localized_name": "Octarine Core",
+    "sanitised_name": "octarinecore"
   },
   {
     "id": 181,
@@ -2013,7 +2236,8 @@
     "secret_shop": 0,
     "side_shop": 1,
     "recipe": 0,
-    "localized_name": "Orb of Venom"
+    "localized_name": "Orb of Venom",
+    "sanitised_name": "orbofvenom"
   },
   {
     "id": 240,
@@ -2022,7 +2246,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Blight Stone"
+    "localized_name": "Blight Stone",
+    "sanitised_name": "blightstone"
   },
   {
     "id": 184,
@@ -2031,7 +2256,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Drum of Endurance"
+    "localized_name": "Recipe: Drum of Endurance",
+    "sanitised_name": "recipedrumofendurance"
   },
   {
     "id": 185,
@@ -2040,7 +2266,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Drum of Endurance"
+    "localized_name": "Drum of Endurance",
+    "sanitised_name": "drumofendurance"
   },
   {
     "id": 186,
@@ -2049,7 +2276,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Medallion of Courage"
+    "localized_name": "Recipe: Medallion of Courage",
+    "sanitised_name": "recipemedallionofcourage"
   },
   {
     "id": 187,
@@ -2058,7 +2286,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Medallion of Courage"
+    "localized_name": "Medallion of Courage",
+    "sanitised_name": "medallionofcourage"
   },
   {
     "id": 227,
@@ -2067,7 +2296,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Solar Crest"
+    "localized_name": "Recipe: Solar Crest",
+    "sanitised_name": "recipesolarcrest"
   },
   {
     "id": 229,
@@ -2076,7 +2306,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Solar Crest"
+    "localized_name": "Solar Crest",
+    "sanitised_name": "solarcrest"
   },
   {
     "id": 188,
@@ -2085,7 +2316,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Smoke of Deceit"
+    "localized_name": "Smoke of Deceit",
+    "sanitised_name": "smokeofdeceit"
   },
   {
     "id": 257,
@@ -2094,7 +2326,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Tome of Knowledge"
+    "localized_name": "Tome of Knowledge",
+    "sanitised_name": "tomeofknowledge"
   },
   {
     "id": 189,
@@ -2103,7 +2336,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Veil of Discord"
+    "localized_name": "Recipe: Veil of Discord",
+    "sanitised_name": "recipeveilofdiscord"
   },
   {
     "id": 190,
@@ -2112,7 +2346,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Veil of Discord"
+    "localized_name": "Veil of Discord",
+    "sanitised_name": "veilofdiscord"
   },
   {
     "id": 230,
@@ -2121,7 +2356,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Guardian Greaves"
+    "localized_name": "Recipe: Guardian Greaves",
+    "sanitised_name": "recipeguardiangreaves"
   },
   {
     "id": 231,
@@ -2130,7 +2366,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Guardian Greaves"
+    "localized_name": "Guardian Greaves",
+    "sanitised_name": "guardiangreaves"
   },
   {
     "id": 205,
@@ -2139,7 +2376,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Rod of Atos"
+    "localized_name": "Recipe: Rod of Atos",
+    "sanitised_name": "reciperodofatos"
   },
   {
     "id": 206,
@@ -2148,7 +2386,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Rod of Atos"
+    "localized_name": "Rod of Atos",
+    "sanitised_name": "rodofatos"
   },
   {
     "id": 238,
@@ -2157,7 +2396,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Iron Talon"
+    "localized_name": "Recipe: Iron Talon",
+    "sanitised_name": "recipeirontalon"
   },
   {
     "id": 239,
@@ -2166,7 +2406,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Iron Talon"
+    "localized_name": "Iron Talon",
+    "sanitised_name": "irontalon"
   },
   {
     "id": 207,
@@ -2175,7 +2416,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Abyssal Blade"
+    "localized_name": "Recipe: Abyssal Blade",
+    "sanitised_name": "recipeabyssalblade"
   },
   {
     "id": 208,
@@ -2184,7 +2426,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Abyssal Blade"
+    "localized_name": "Abyssal Blade",
+    "sanitised_name": "abyssalblade"
   },
   {
     "id": 209,
@@ -2193,7 +2436,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Heaven's Halberd"
+    "localized_name": "Recipe: Heaven's Halberd",
+    "sanitised_name": "recipeheavenshalberd"
   },
   {
     "id": 210,
@@ -2202,7 +2446,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Heaven's Halberd"
+    "localized_name": "Heaven's Halberd",
+    "sanitised_name": "heavenshalberd"
   },
   {
     "id": 211,
@@ -2211,7 +2456,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Ring of Aquila"
+    "localized_name": "Recipe: Ring of Aquila",
+    "sanitised_name": "reciperingofaquila"
   },
   {
     "id": 212,
@@ -2220,7 +2466,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Ring of Aquila"
+    "localized_name": "Ring of Aquila",
+    "sanitised_name": "ringofaquila"
   },
   {
     "id": 213,
@@ -2229,7 +2476,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Tranquil Boots"
+    "localized_name": "Recipe: Tranquil Boots",
+    "sanitised_name": "recipetranquilboots"
   },
   {
     "id": 214,
@@ -2238,7 +2486,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Tranquil Boots"
+    "localized_name": "Tranquil Boots",
+    "sanitised_name": "tranquilboots"
   },
   {
     "id": 215,
@@ -2247,7 +2496,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Shadow Amulet"
+    "localized_name": "Shadow Amulet",
+    "sanitised_name": "shadowamulet"
   },
   {
     "id": 253,
@@ -2256,7 +2506,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 1,
-    "localized_name": "Recipe: Glimmer Cape"
+    "localized_name": "Recipe: Glimmer Cape",
+    "sanitised_name": "recipeglimmercape"
   },
   {
     "id": 254,
@@ -2265,7 +2516,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "Glimmer Cape"
+    "localized_name": "Glimmer Cape",
+    "sanitised_name": "glimmercape"
   },
   {
     "id": 1021,
@@ -2274,7 +2526,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "River Vial: Chrome"
+    "localized_name": "River Vial: Chrome",
+    "sanitised_name": "rivervialchrome"
   },
   {
     "id": 1022,
@@ -2283,7 +2536,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "River Vial: Dry"
+    "localized_name": "River Vial: Dry",
+    "sanitised_name": "rivervialdry"
   },
   {
     "id": 1023,
@@ -2292,7 +2546,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "River Vial: Slime"
+    "localized_name": "River Vial: Slime",
+    "sanitised_name": "rivervialslime"
   },
   {
     "id": 1024,
@@ -2301,7 +2556,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "River Vial: Oil"
+    "localized_name": "River Vial: Oil",
+    "sanitised_name": "rivervialoil"
   },
   {
     "id": 1025,
@@ -2310,7 +2566,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "River Vial: Electrified"
+    "localized_name": "River Vial: Electrified",
+    "sanitised_name": "rivervialelectrified"
   },
   {
     "id": 1026,
@@ -2319,7 +2576,8 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "River Vial: Potion"
+    "localized_name": "River Vial: Potion",
+    "sanitised_name": "rivervialpotion"
   },
   {
     "id": 1027,
@@ -2328,6 +2586,7 @@
     "secret_shop": 0,
     "side_shop": 0,
     "recipe": 0,
-    "localized_name": "River Vial: Blood"
+    "localized_name": "River Vial: Blood",
+    "sanitised_name": "rivervialblood"
   }
 ]
