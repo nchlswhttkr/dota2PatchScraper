@@ -25,32 +25,44 @@ import json
 
 class DOTAPatch:
 
-    def __init__(self, post_url, steam_api_key=None, save_media_to = 'media', write_patches_to='patches'):
+    def __init__(self, post_url, steam_api_key=None, write_patches_to='patches'):
 
+        self.success = True
         self.url = post_url
         self.api_key = steam_api_key
         self.id = None
         self.release_date = None
-        self.changelog = None
-        self.media_directory = save_media_to
+        self.all_heroes = []
+        self.all_items = []
+        self.changed_heroes = []
+        self.changed_items = []
+        self._changes = {}
+        self._general_changes = []
+
+        self.media_directory = 'media'
         self.patch_directory = write_patches_to
         self._icon_url_path = 'http://cdn.dota2.com/apps/dota2/images'
 
-        # verify the icons save directory, or use a default
-        if os.access(self.media_directory, os.W_OK) != True:
-            self._log_error(Exception("The directory to save media to, '{}', does not have write permissions or does not exist"))
-            self.media_directory = 'media'
-        if 'icons' not in os.listdir(self.media_directory):
-            os.mkdir('{}/{}'.format(self.media_directory, 'icons'))
+        # verify the directory to save patches to is valid and has write permissions
+        if not os.path.exists(self.patch_directory):
+            raise FileNotFoundError('The directory to save patches to does not exist')
+        if not os.access(self.patch_directory, os.W_OK):
+            raise PermissionError('The directory to save patches to does not have write permissions')
 
-        # verify the patch writing directory
-        if os.access(self.patch_directory, os.W_OK) != True:
-            self._log_error(Exception("The directory to write patches to, '{}', does not have write permissions or does not exist"))
-            self.patch_directory = 'patches'
-            if 'patches' not in os.listdir():
-                os.mkdir('patches')
+        # maintain a list of all heroes and items, try and update using Steam API
+        if self.api_key is not None:
+            self._get_hero_records()
+            self._get_item_records()
+        with open('heroes.json', 'r') as herofile:
+            heroes = json.load(herofile)
+            for hero in heroes:
+                self.all_heroes.append(hero['sanitised_name'])
+        with open('items.json', 'r') as itemfile:
+            items = json.load(itemfile)
+            for item in items:
+                self.all_items.append(item['sanitised_name'])
 
-        # read blog post and fetch details
+        # read patch post and fetch details
         self._get_patch_details(post_url)
 
     def _get_patch_details(self, post_url):
@@ -68,17 +80,12 @@ class DOTAPatch:
             raise Exception('Received response {} when trying to access post at "{}"'.format(r.status_code, post_url))
         document = html.fromstring(r.content)
 
-        # find target sections (date and contents
+        # find target sections (date and contents)
         try:
             raw_post_date = document.find_class('entry-meta')[0].text_content().strip()
-        except IndexError:
-            self._log_error(IndexError("Could not access date within post document"))
-            return None
-
-        try:
             raw_post_content = document.find_class('entry-content')[0].text_content().strip()
         except IndexError:
-            self._log_error(IndexError("Could not access patch details within post document"))
+            self.success = False
             return None
 
         # determine the post date as a datetime object
@@ -98,20 +105,16 @@ class DOTAPatch:
         # set the post id
         self.id = raw_id.upper()
 
-        # update the list of heroes and items if a Steam API key is given, and generate the changelog object
-        if self.api_key is not None:
-            self._get_hero_and_item_records()
-        self.changelog = DOTAChangelog(raw_changelog, self._sanitise_name)
+        self.parse_changelog(raw_changelog)
 
-    def _get_hero_and_item_records(self):
+    def _get_hero_records(self):
         """
-        attempts to get updated hero and item data from the Steam API, otherwise default to the local files
+        attempts to get updated hero data from the Steam API, otherwise default to the local files
         :return: none
         """
         if self.api_key is None:
             return None
 
-        # get heroes
         try:
             r = requests.get(url='http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/',
                              params={'key': self.api_key, 'language':'en'})
@@ -123,9 +126,16 @@ class DOTAPatch:
             with open('heroes.json', 'w') as outfile:
                 json.dump(hero_list, outfile, indent=2)
         except requests.HTTPError as err:
-            self._log_error(err)
+            pass
 
-        # get items
+    def _get_item_records(self):
+        """
+        attempts to get updated item data from the Steam API, otherwise default to the local files
+        :return: none
+        """
+        if self.api_key is None:
+            return None
+
         try:
             r = requests.get(url='http://api.steampowered.com/IEconDOTA2_570/GetGameItems/V001/',
                              params={'key':self.api_key, 'language':'en'})
@@ -137,24 +147,23 @@ class DOTAPatch:
             with open('items.json', 'w') as outfile:
                 json.dump(item_list, outfile, indent=2)
         except requests.HTTPError as err:
-            self._log_error(err)
+            pass
 
     def generate_page(self, check_for_icons=False, open_on_completion=False):
         """
         writes the patch notes to a new folder within the specified directory
-        :param write_destination: local destination to write patch contents to
+        :param check_for_icons: determines whether missing icons should be downloaded
         :param open_on_completion: open the HTML file when the page is generated, useful for testing
         :return: none
         """
 
         # cannot generate changelog if it was unable to be parsed
-        if self.changelog is None:
-            self._log_error(Exception("Cannot write patch, scrape failed"))
-            return None
+        if not self.success:
+            raise Exception('Could not generate page, patch is not ready to write')
 
         # download hero icons, unless the user preferences otherwise
         if check_for_icons:
-            self.get_icons()
+            self._get_icons()
 
         # initialise a NEW directory that does not overwrite existing folders
         if self.id not in os.listdir(self.patch_directory):
@@ -173,7 +182,7 @@ class DOTAPatch:
         os.mkdir(write_patch_to)
         os.mkdir('{}/img'.format(write_patch_to))
         shutil.copyfile('patch.css', '{}/patch.css'.format(write_patch_to))
-        shutil.copyfile('media/backdrop.jpg', '{}/img/backdrop.jpg'.format(write_patch_to))
+        shutil.copyfile('{}/backdrop.jpg'.format(self.media_directory), '{}/img/backdrop.jpg'.format(write_patch_to))
 
         # generate the HTML document
         with open('{}/index.html'.format(write_patch_to), 'w') as patchfile:
@@ -189,39 +198,39 @@ class DOTAPatch:
                             '<h1>DOTA2 {}</h1>\n'.format(self.id))
 
             # if there are any general notes in the patch
-            if self.changelog.check_general_changes():
+            if self._check_general_changes():
                 patchfile.write('<div id="general" class="section">\n' +
                                 '<h2>GENERAL</h2>\n')
-                for general_change in self.changelog['general']:
+                for general_change in self._general_changes:
                     patchfile.write('<p>{}</p>\n'.format(general_change))
                 patchfile.write('</div>\n')
 
             # changes to items
-            if self.changelog.check_item_changes():
+            if self._check_item_changes():
                 patchfile.write('<div id="items" class="section">\n' +
                                 '<h2>ITEMS</h2>\n')
 
                 # list buffs to target item
-                for item in self.changelog.items_changed:
+                for item in self.changed_items:
                     patchfile.write('<div class="entity">\n' +
                                     '<img src="img/{}.png">\n'.format(self._sanitise_name(item)) +
                                     '<h3>{}</h3>\n'.format(item))
-                    for change in self.changelog[item]:
+                    for change in self.get_changes(item):
                         patchfile.write('<p>{}</p>\n'.format(change))
                     patchfile.write('</div>\n')
                 patchfile.write("</div>\n")
 
             # changes to heroes
-            if self.changelog.check_hero_changes():
+            if self._check_hero_changes():
                 patchfile.write('<div id="heroes" class="section">\n' +
                                 '<h2>HEROES</h2>\n')
 
                 # list buffs to target hero
-                for hero in self.changelog.heroes_changed:
+                for hero in self.changed_heroes:
                     patchfile.write('<div class="entity">\n' +
                                     '<img src="img/{}.png">\n'.format(self._sanitise_name(hero)) +
                                     '<h3>{}</h3>\n'.format(hero))
-                    for change in self.changelog[hero]:
+                    for change in self.get_changes(hero):
                         patchfile.write('<p>{}</p>\n'.format(change))
                     patchfile.write('</div>\n')
                 patchfile.write("</div>\n")
@@ -229,7 +238,7 @@ class DOTAPatch:
 
         # shift icons for every hero and item from the main folder, or use placeholders
         local_icons = os.listdir('{}/icons'.format(self.media_directory))
-        for entity in (self.changelog.heroes_changed + self.changelog.items_changed):
+        for entity in (self.changed_heroes + self.changed_items):
             entity_filename = self._sanitise_name(entity) + ".png"
             if entity_filename in local_icons:
                 shutil.copyfile('{}/icons/{}'.format(self.media_directory, entity_filename), '{}/img/{}'.format(write_patch_to, entity_filename))
@@ -237,25 +246,27 @@ class DOTAPatch:
                 shutil.copyfile('{}/default.png'.format(self.media_directory), '{}/img/{}'.format(self.media_directory, entity_filename))
 
         if open_on_completion:
-            webbrowser.open(os.getcwd() + '/{}/index.html'.format(write_patch_to))
+            webbrowser.open(os.getcwd() + '{}/index.html'.format(write_patch_to))
 
-    def get_icons(self, save_icons_to=None):
+    def _get_icons(self):
         """
         determines whether any icons need to be downloaded by reading and comparing the current icon list with the lists
         in heroes.json and items.json
-        :param save_icons_to: The parent directory for icons
         :return: none
         """
 
         # set a default save location
-        if save_icons_to is None:
-            save_icons_to = '{}/icons'.format(self.media_directory)
+        save_icons_to = '{}/icons'.format(self.media_directory)
 
         # read items and heroes locally
         hero_list = json.load(open('heroes.json', 'r'))
         item_list = json.load(open('items.json', 'r'))
         local_icons = os.listdir(save_icons_to)
 
+        # some icons should be excluded, as a tuple to use an argument for inbuilt string methods
+        exclude_item_prefixes = ('recipe', 'rivervial')
+
+        # check that icons for every hero have been downloaded
         for hero in hero_list:
             hero_filename = '{}.png'.format(self._sanitise_name(hero['localized_name']))
 
@@ -270,12 +281,13 @@ class DOTAPatch:
                 try:
                     urllib.request.urlretrieve(download_url, write_file_location)
                 except urllib.request.HTTPError:
-                    self._log_error(Exception('Could not save icon of {} / {}'.format(hero['localized_name'], hero['name'])))
+                    pass
 
+        # check that icons for every item have been downloaded, excluding some specific icons
         for item in item_list:
             item_filename = '{}.png'.format(self._sanitise_name(item['localized_name']))
 
-            if item_filename not in local_icons:
+            if item_filename not in local_icons and not item_filename.startswith(exclude_item_prefixes):
                 item_ref_name = item['name'][5:]  # strip 'item_'
 
                 # fetch item from the CDN
@@ -284,16 +296,7 @@ class DOTAPatch:
                 try:
                     urllib.request.urlretrieve(download_url, write_file_location)
                 except urllib.request.HTTPError:
-                    self._log_error(Exception('Could not save icon of {} / {}'.format(item['localized_name'], item['name'])))
-
-    def _log_error(self, err):
-        # logs internal errors
-        if 'errors.txt' not in os.listdir():
-            error_log_file = open('errors.txt', 'w')
-        else:
-            error_log_file = open('errors.txt', 'a')
-        error_log_file.write('[{}] {}\n'.format(datetime.now().strftime('%d %b %Y %H:%I'), err))
-        error_log_file.close()
+                    pass
 
     def _sanitise_name(self, raw_name):
         # converts names into a more general form to make comparison easier
@@ -306,52 +309,15 @@ class DOTAPatch:
 
         return name
 
+    def get_changes(self, raw_entity_name):
+        entity_name = self._sanitise_name(raw_entity_name)
+        return self._changes[entity_name]
 
-class DOTAChangelog:
+    def parse_changelog(self, raw_changelog):
 
-    def __init__(self, changelog_raw, sanitise_name_FN):
-        self.heroes_changed = []
-        self.items_changed = []
-        self.targeted_changes = {}
-        self._sanitise_name = sanitise_name_FN
+        # divide patch notes into individual changes
+        changes = raw_changelog.split('* ')[1:]
 
-        self.hero_list = []
-        with open('heroes.json', 'r') as herofile:
-            heroes = json.load(herofile)
-            for hero in heroes:
-                self.hero_list.append(hero['sanitised_name'])
-
-        self.item_list = []
-        with open('items.json', 'r') as itemfile:
-            items = json.load(itemfile)
-            for item in items:
-                self.item_list.append(item['sanitised_name'])
-
-        self.parse_changelog(changelog_raw)
-
-        # sort the lists of changed heroes and items, as well as removing duplicates
-        # this ensures that the patch notes are ordered alphabetically when iterated over
-        self._sort(self.heroes_changed)
-        i = len(self.heroes_changed) - 1
-        while i >= 1:
-            if self.heroes_changed[i] == self.heroes_changed[i - 1]:
-                self.heroes_changed.remove(self.heroes_changed[i])
-            i -= 1
-        self._sort(self.items_changed)
-        i = len(self.items_changed) - 1
-        while i >= 1:
-            if self.items_changed[i] == self.items_changed[i - 1]:
-
-                self.items_changed.remove(self.items_changed[i])
-            i -= 1
-
-    def __getitem__(self, item):
-        return self.targeted_changes[self._sanitise_name(item)]
-
-    def parse_changelog(self, changelog_raw):
-
-        #divide patch notes into individual changes
-        changes = changelog_raw.split('* ')[1:]
         for change in changes:
 
             # if the change is target at a hero/item
@@ -361,24 +327,38 @@ class DOTAChangelog:
             if ':' in change:
                 target, change_details = change.split(':')
                 change_details = change_details.strip()
-                if self._sanitise_name(target) in self.hero_list:
-                    self.heroes_changed.append(target)
+                if self._sanitise_name(target) in self.all_heroes:
+                    self.changed_heroes.append(target)
                     self._add_change(target, change_details)
-                elif self._sanitise_name(target) in self.item_list:
-                    self.items_changed.append(target)
+                elif self._sanitise_name(target) in self.all_items:
+                    self.changed_items.append(target)
                     self._add_change(target, change_details)
                 else:
-                    self._add_change('general', change)
-
+                    self._general_changes.append(change)
             # general changelog to catch any other changes
             else:
-                self._add_change('general', change)
+                self._general_changes.append(change)
+
+        # sort the lists of changed heroes and items, as well as removing duplicates
+        # this ensures that the patch notes are ordered alphabetically when iterated over
+        self._sort(self.changed_heroes)
+        i = len(self.changed_heroes) - 1
+        while i >= 1:
+            if self.changed_heroes[i] == self.changed_heroes[i - 1]:
+                self.changed_heroes.remove(self.changed_heroes[i])
+            i -= 1
+        self._sort(self.changed_items)
+        i = len(self.changed_items) - 1
+        while i >= 1:
+            if self.changed_items[i] == self.changed_items[i - 1]:
+                self.changed_items.remove(self.changed_items[i])
+            i -= 1
 
     def _add_change(self, target, change_details):
         try:
-            self.targeted_changes[self._sanitise_name(target)].append(change_details)
+            self._changes[self._sanitise_name(target)].append(change_details)
         except KeyError:
-            self.targeted_changes[self._sanitise_name(target)] = [change_details]
+            self._changes[self._sanitise_name(target)] = [change_details]
 
     def _sort(self, L, start=0, end=None):
         # in place quicksort
@@ -401,16 +381,16 @@ class DOTAChangelog:
         self._sort(L, start, high - 1)
         self._sort(L, high + 1, end)
 
-    def check_general_changes(self):
-        return 'general' in self.targeted_changes.keys()
+    def _check_general_changes(self):
+        return len(self._general_changes) != 0
 
-    def check_hero_changes(self):
-        return len(self.heroes_changed) > 0
+    def _check_hero_changes(self):
+        return len(self.changed_heroes) != 0
 
-    def check_item_changes(self):
-        return len(self.items_changed) > 0
+    def _check_item_changes(self):
+        return len(self.changed_items) != 0
 
 
 if __name__ == '__main__':
     mypatch = DOTAPatch(input("Enter patch post URL > "))
-    mypatch.generate_page(check_for_icons=True, open_on_completion=True)
+    mypatch.generate_page()
