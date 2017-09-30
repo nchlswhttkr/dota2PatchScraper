@@ -13,14 +13,11 @@ import json
 # TODO: can sometimes throw an error if the blog post is not served with the page
 # TODO: empty lines in patch
 # TODO: consider items with multiple levels - dagon, necrobook, BoTs
-# TODO: output patch as json
 # TODO: compatability with updates via steamcomunity.com
 # TODO: regex for date recognition
 # TODO: disable writing for unprepared patches
 # TODO: general notes on naming conventions
-# TODO: better control of public/private  methods
 # TODO: provide README documentation
-# TODO: limit item downloads for recipes/river vials
 
 
 class DOTAPatch:
@@ -31,7 +28,7 @@ class DOTAPatch:
         self.url = post_url
         self.api_key = steam_api_key
         self.id = None
-        self.release_date = None
+        self.release_date = datetime.now()
         self.all_heroes = []
         self.all_items = []
         self.changed_heroes = []
@@ -149,7 +146,7 @@ class DOTAPatch:
         except requests.HTTPError as err:
             pass
 
-    def generate_page(self, check_for_icons=False, open_on_completion=False):
+    def generate_patch(self, check_for_icons=False, open_on_completion=False, generate_json=False):
         """
         writes the patch notes to a new folder within the specified directory
         :param check_for_icons: determines whether missing icons should be downloaded
@@ -244,6 +241,23 @@ class DOTAPatch:
                 shutil.copyfile('{}/icons/{}'.format(self.media_directory, entity_filename), '{}/img/{}'.format(write_patch_to, entity_filename))
             else:
                 shutil.copyfile('{}/default.png'.format(self.media_directory), '{}/img/{}'.format(self.media_directory, entity_filename))
+
+        # generate and write a json with the patches details if requests
+        if generate_json:
+            jsoncontents = {
+                'url': self.url,
+                'id': self.id,
+                'date': self.release_date.strftime('%d-%m-%Y'),
+                'changed_heroes': self.changed_heroes,
+                'changed_items': self.changed_items,
+                'general_changes': self._general_changes,
+                'hero_changes': self.get_hero_changes(),
+                'item_changes': self.get_item_changes()
+            }
+
+            jsonfile = open('{}/{}.json'.format(write_patch_to, self.id), 'w')
+            json.dump(jsoncontents, jsonfile, indent=2)
+            jsonfile.close()
 
         if open_on_completion:
             webbrowser.open(os.getcwd() + '{}/index.html'.format(write_patch_to))
@@ -390,7 +404,25 @@ class DOTAPatch:
     def _check_item_changes(self):
         return len(self.changed_items) != 0
 
+    def get_hero_changes(self):
+        """
+        generates a dictionary of changed heroes, listing all of their changes
+        """
+        hero_changes = {}
+        for hero in self.changed_heroes:
+            hero_changes[hero] = self._changes[self._sanitise_name(hero)]
+        return hero_changes
+
+    def get_item_changes(self):
+        """
+        generates a dictionary of changed items, listing all of their changes
+        """
+        item_changes = {}
+        for item in self.changed_items:
+            item_changes[item] = self._changes[self._sanitise_name(item)]
+        return item_changes
+
 
 if __name__ == '__main__':
     mypatch = DOTAPatch(input("Enter patch post URL > "))
-    mypatch.generate_page()
+    mypatch.generate_patch(generate_json=True)
