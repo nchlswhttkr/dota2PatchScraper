@@ -423,6 +423,14 @@ class DOTAPatch:
         return item_changes
 
 
-if __name__ == '__main__':
-    mypatch = DOTAPatch(input("Enter patch post URL > "))
+def main(arguments):
+    if arguments:
+        patch_url = arguments[0]
+    else:
+        patch_url = input("Enter patch post URL > ")
+    mypatch = DOTAPatch(patch_url)
     mypatch.generate_patch(generate_json=True)
+
+
+if __name__ == '__main__':
+    main(sys.argv[1:])
