@@ -8,15 +8,10 @@ import webbrowser
 import json
 
 
-# TODO: add sys arg capability
 # TODO: documentation for localised name
-# TODO: can sometimes throw an error if the blog post is not served with the page
-# TODO: empty lines in patch
 # TODO: consider items with multiple levels - dagon, necrobook, BoTs
 # TODO: compatability with updates via steamcomunity.com
-# TODO: regex for date recognition
-# TODO: disable writing for unprepared patches
-# TODO: general notes on naming conventions
+# TODO: disable writing for unprepared/failed patches
 # TODO: provide README documentation
 
 
@@ -28,7 +23,7 @@ class DOTAPatch:
         self.url = post_url
         self.api_key = steam_api_key
         self.id = None
-        self.release_date = datetime.now()
+        self.release_date = None
         self.all_heroes = []
         self.all_items = []
         self.changed_heroes = []
@@ -86,7 +81,7 @@ class DOTAPatch:
             return None
 
         # determine the post date as a datetime object
-        self.release_date = datetime.strptime(raw_post_date, '%B %d, %Y - Valve')
+        self.release_date = self._extract_date(raw_post_date)
 
         # split the post contents by a line separator to get ID and changelog
         # this line separator is usually a series of equal '=' signs
@@ -103,6 +98,23 @@ class DOTAPatch:
         self.id = raw_id.upper()
 
         self.parse_changelog(raw_changelog)
+
+    def _extract_date(self, raw_date):
+        """
+        extracts a datetime object from a string, or returns the current time if no date can be found
+        :param raw_date: the string containing the date
+        :return: a datetime object
+        """
+        #TODO: edge cases - american date format and numeric months
+        m = re.match(r"([0-9]+)[ .,/-]*([A-Za-z]+)[ .,/-]*([0-9]+)", raw_date)
+        if m:
+            # handles shortened months ('Dec' V 'December')
+            if len(m[2]) == 3:
+                return datetime.strptime('{}-{}-{}'.format(m[1], m[2], m[3]), '%d-%b-%Y')
+            else:
+                return datetime.strptime('{}-{}-{}'.format(m[1], m[2], m[3]), '%d-%B-%Y')
+        else:
+            return datetime.today()
 
     def _get_hero_records(self):
         """
@@ -192,7 +204,7 @@ class DOTAPatch:
                             '</head>\n' +
                             '<body>\n' +
                             '<img src="http://cdn.dota2.com/apps/dota2/images/blogfiles/bg_five_heroes.jpg" id="banner"></img>\n' +
-                            '<h1>DOTA2 {}</h1>\n'.format(self.id))
+                            '<h1>DOTA2  {}  ({})</h1>\n'.format(self.id, datetime.strftime(self.release_date, '%d/%m/%y')))
 
             # if there are any general notes in the patch
             if self._check_general_changes():
