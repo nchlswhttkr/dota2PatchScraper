@@ -676,5 +676,17 @@
     "id": 114,
     "localized_name": "Monkey King",
     "sanitised_name": "monkeyking"
+  },
+  {
+    "name": "npc_dota_hero_pangolier",
+    "id": 120,
+    "localized_name": "Pangolier",
+    "sanitised_name": "pangolier"
+  },
+  {
+    "name": "npc_dota_hero_dark_willow",
+    "id": 119,
+    "localized_name": "Dark Willow",
+    "sanitised_name": "darkwillow"
   }
 ]
