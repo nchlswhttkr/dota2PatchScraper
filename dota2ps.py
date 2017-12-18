@@ -68,14 +68,18 @@ class DOTAPatch:
 
         # get post document and parse into lxml
         r = requests.get(post_url)
-        if r.status_code != 200:
-            raise Exception('Received response {} when trying to access post at "{}"'.format(r.status_code, post_url))
+        r.raise_for_status()
         document = html.fromstring(r.content)
+        domain = re.findall(r"[A-z0-9\.]*\.com", post_url)[0]
 
         # find target sections (date and contents)
         try:
-            raw_post_date = document.find_class('entry-meta')[0].text_content().strip()
-            raw_post_content = document.find_class('entry-content')[0].text_content().strip()
+            if domain == 'www.dota2.com':
+                raw_post_date = document.find_class('entry-meta')[0].text_content().strip()
+                raw_post_content = document.find_class('entry-content')[0].text_content().strip()
+            elif domain == 'store.steampowered.com':
+                raw_post_date = document.find_class('headline')[0].find_class('date')[0].text_content().strip()
+                raw_post_content = document.find_class('body')[0].text_content().strip()
         except IndexError:
             self.success = False
             return None
@@ -91,13 +95,13 @@ class DOTAPatch:
         * HERO: CHANGE
         * HERO2: CHANGE
         """
-        line_separator = re.findall(':=+', raw_post_content)[0]
+        line_separator = re.findall(r":=+", raw_post_content)[0]
         raw_id, raw_changelog = raw_post_content.split(line_separator)
 
         # set the post id
         self.id = raw_id.upper()
 
-        self.parse_changelog(raw_changelog)
+        self._parse_changelog(raw_changelog)
 
     def _extract_date(self, raw_date):
         """
@@ -105,7 +109,7 @@ class DOTAPatch:
         :param raw_date: the string containing the date
         :return: a datetime object
         """
-        #TODO: edge cases - american date format and numeric months
+        #TODO: edge cases - american date format, month as a number, missing date
         m = re.match(r"([0-9]+)[ .,/-]*([A-Za-z]+)[ .,/-]*([0-9]+)", raw_date)
         if m:
             # handles shortened months ('Dec' V 'December')
@@ -125,16 +129,19 @@ class DOTAPatch:
             return None
 
         try:
+            # raises exceptions if the request fails
             r = requests.get(url='http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/',
-                             params={'key': self.api_key, 'language':'en'})
+                             params={'key': self.api_key, 'language': 'en'})
             r.raise_for_status()
+
             hero_list = []
             for hero in r.json()['result']['heroes']:
                 hero['sanitised_name'] = self._sanitise_name(hero['localized_name'])
                 hero_list.append(hero)
             with open('heroes.json', 'w') as outfile:
                 json.dump(hero_list, outfile, indent=2)
-        except requests.HTTPError as err:
+
+        except requests.HTTPError:
             pass
 
     def _get_item_records(self):
@@ -146,23 +153,27 @@ class DOTAPatch:
             return None
 
         try:
+            # raises exceptions if the request fails
             r = requests.get(url='http://api.steampowered.com/IEconDOTA2_570/GetGameItems/V001/',
-                             params={'key':self.api_key, 'language':'en'})
+                             params={'key': self.api_key, 'language': 'en'})
             r.raise_for_status()
+
             item_list = []
             for item in r.json()['result']['items']:
                 item['sanitised_name'] = self._sanitise_name(item['localized_name'])
                 item_list.append(item)
             with open('items.json', 'w') as outfile:
                 json.dump(item_list, outfile, indent=2)
+
         except requests.HTTPError as err:
             pass
 
-    def generate_patch(self, check_for_icons=False, open_on_completion=False, generate_json=False):
+    def generate_patch(self, check_for_icons=False, open_on_completion=False, generate_json=True):
         """
         writes the patch notes to a new folder within the specified directory
         :param check_for_icons: determines whether missing icons should be downloaded
         :param open_on_completion: open the HTML file when the page is generated, useful for testing
+        :param generate_json: will produce an accompanying json file of the analysed patch
         :return: none
         """
 
@@ -276,8 +287,7 @@ class DOTAPatch:
 
     def _get_icons(self):
         """
-        determines whether any icons need to be downloaded by reading and comparing the current icon list with the lists
-        in heroes.json and items.json
+        determines whether any new icons need to be downloaded by reading and comparing the current icon list with the lists in heroes.json and items.json
         :return: none
         """
 
@@ -339,7 +349,7 @@ class DOTAPatch:
         entity_name = self._sanitise_name(raw_entity_name)
         return self._changes[entity_name]
 
-    def parse_changelog(self, raw_changelog):
+    def _parse_changelog(self, raw_changelog):
 
         # divide patch notes into individual changes
         changes = raw_changelog.split('* ')[1:]
@@ -441,7 +451,7 @@ def main(arguments):
     else:
         patch_url = input("Enter patch post URL > ")
     mypatch = DOTAPatch(patch_url)
-    mypatch.generate_patch(generate_json=True)
+    mypatch.generate_patch()
 
 
 if __name__ == '__main__':
