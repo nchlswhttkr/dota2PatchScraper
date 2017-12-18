@@ -42,4 +42,6 @@ COMING SOON
 
 ## Sample Patch Notes
 
-![7.06C](https://i.imgur.com/qwGk0uT.png)
+![7.06C](./samples/706C.jpg)
+
+![7.06D](./samples/706D.jpg)
