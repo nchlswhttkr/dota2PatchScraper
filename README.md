@@ -29,11 +29,11 @@ from dota2ps import DOTAPatch
 ###### CLI
 ```
 python dota2ps.py
-// YOU WILL SUBSEQUENTLY BE PROMPTED FOR A URL
+> http://www.dota2.com/news/updates/29717
 
 OR
 
-python dota2ps.py "http://www.dota2.com/news/updates/29717"
+python d2ps.py http://www.dota2.com/news/updates/29717
 ```
 
 ## Documentation
