@@ -1,0 +1,98 @@
+@font-face {
+    font-family: Radiance;
+    src: url('https://cdn.steamstatic.com/apps/dota2/fonts/radiance.woff') format('woff');
+}
+
+@font-face {
+    font-family: Radiance-Bold;
+    src: url('https://cdn.steamstatic.com/apps/dota2/fonts/radiance-bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: Radiance-SemiBold;
+    src: url('https://cdn.steamstatic.com/apps/dota2/fonts/radiance-semibold.woff') format('woff');
+}
+
+body {
+    color: #eeeeee;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-image: url("img/backdrop.jpg");
+}
+
+h1 {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.8);
+    font-family: Radiance-SemiBold, sans-serif;
+    font-size: 48px;
+    color: #ED3B1C;
+    text-align: center;
+    width: 100%;
+}
+
+h2 {
+    margin: 50px 0 20px;
+    padding: 0;
+    font-family: Radiance-SemiBold, sans-serif;
+    font-size: 36px;
+    color: #ED3B1C;
+    text-align: left;
+}
+
+h3 {
+    font-family: Radiance, sans-serif;
+    font-size: 24px;
+}
+
+p {
+    font-family: Radiance, sans-serif;
+    font-size: 20px;
+}
+
+a {
+    color: inherit;
+    font-family: Radiance-Bold, sans-serif;
+}
+
+#banner {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+#general, #heroes, #items {
+    width: 50%;
+    min-width: 280px;
+    max-width: 1000px;
+    margin: 50px auto 100px;
+}
+
+#general > p {
+    margin: 5px 0;
+}
+
+.entity {
+    padding: 0;
+    margin: 40px 0;
+}
+
+.entity:first-of-type {
+    margin-top: 20px;
+}
+
+.entity > * {
+    margin: 0 0;
+}
+
+.entity > img {
+    height: 48px;
+    border: 1px solid #eeeeee;
+}
+
+footer {
+    text-align: center;
+}
