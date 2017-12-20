@@ -23,6 +23,7 @@ TODO:
  - include warnings about when to use reference/sanitised/display names
  - cater to patch notes that do not follow the typical structure
    - reference: http://www.dota2.com/news/updates/35745/
+ - pass element to DOTAPatch._extract_date()
 """
 
 class DOTAPatch:
@@ -218,10 +219,10 @@ class DOTAPatch:
         try:
             if domain == 'www.dota2.com':
                 raw_patch_date = document.find_class('entry-meta')[0].text_content().strip()
-                raw_patch_contents = document.find_class('entry-content')[0].text_content().strip()
+                raw_patch_contents = document.find_class('entry-content')[0]
             elif domain == 'store.steampowered.com':
                 raw_patch_date = document.find_class('headline')[0].find_class('date')[0].text_content().strip()
-                raw_patch_contents = document.find_class('body')[0].text_content().strip()
+                raw_patch_contents = document.find_class('body')[0]
             else:
                 raise IndexError
         except IndexError:
@@ -231,9 +232,9 @@ class DOTAPatch:
         # identify the patch release date
         self.patch_release_date = self._extract_date(raw_patch_date)
 
-        # split the patch contents into a title (the ID) and a changelog
-        # this is usually identified by a group of '=' signs
-        # regex ignores newlines, so we can also include the colon from the preceding line
+        # iterate over each line of the patch, trying to identify an ID and each discrete change
+        # below is the typical structure of a patch, but we cannot assume the ID and changse will be broken by '=='
+        # refer to http://store.steampowered.com/news/35745/ for an example of irregularly ordered patch notes
         """
         PATCH ID:
         ====
@@ -241,23 +242,29 @@ class DOTAPatch:
         ...
         ...
         """
-        line_separator = re.findall(r":=", raw_patch_contents)[0]
-        raw_id, raw_changelog = raw_patch_contents.split(line_separator)
+        changelog = []
+        for raw_line in raw_patch_contents.itertext():
+            # attempt to find a patch id, otherwise add it to the changelog if it not an empty line or a break ('===')
+            line = raw_line.strip()
+            m = re.search(r"[0-9]*\.[0-9]*[A-z]", line)
+            if m:
+                self.patch_id = m[0].upper()
+            elif line != '':
+                if line.startswith('* '):
+                    changelog.append('{}'.format(line[2:]))
+                elif not line.startswith('='):
+                    changelog[-1] += '\n{}'.format(line)
 
-        # set the date and parse the changelog
-        self.patch_id = re.findall(r"[0-9]*\.[0-9]*[A-z]", raw_id)[0].upper()
-        self._parse_changelog(raw_changelog)
+        self._parse_changelog(changelog)
 
-    def _parse_changelog(self, raw_changelog):
+    def _parse_changelog(self, changelog):
         """
         identifies the individual changes within a patch from the changelog
-        :param raw_changelog:
-        :return: none
+        :param changelog: a list of changes, with each change as a string
+        :return: none, changes are appends to instance variables
         """
 
-        changes = raw_changelog.split('* ')[1:]
-
-        for change in changes:
+        for change in changelog:
 
             # changes to heroes and items will have this form
             """
