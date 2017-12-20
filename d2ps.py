@@ -21,6 +21,8 @@ TODO:
  - accepted patch url in multiple formats (id, url sans protocol, etc...)
  - try/except catches for all API requests (inc. requests.raise_for_status())
  - include warnings about when to use reference/sanitised/display names
+ - cater to patch notes that do not follow the typical structure
+   - reference: http://www.dota2.com/news/updates/35745/
 """
 
 class DOTAPatch:
@@ -243,7 +245,7 @@ class DOTAPatch:
         raw_id, raw_changelog = raw_patch_contents.split(line_separator)
 
         # set the date and parse the changelog
-        self.patch_id = raw_id.upper()
+        self.patch_id = re.findall(r"[0-9]*\.[0-9]*[A-z]", raw_id)[0].upper()
         self._parse_changelog(raw_changelog)
 
     def _parse_changelog(self, raw_changelog):
